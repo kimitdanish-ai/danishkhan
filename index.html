@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Mohd Danish Khan</title>
+  <title>Danish Khan</title>
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -21,18 +21,70 @@
     }
 
     .container{
-      max-width:1000px;
+      max-width:1100px;
       width:100%;
-      padding:30px 20px;
-      text-align:center;
+      padding:28px 18px 34px;
     }
 
-    .top{
+    /* Top contact strip */
+    .topbar{
       display:flex;
-      flex-direction:column;
+      justify-content:space-between;
       align-items:center;
-      gap:14px;
-      margin-bottom:34px;
+      gap:12px;
+      flex-wrap:wrap;
+      padding:12px 14px;
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      border-radius:14px;
+      backdrop-filter: blur(6px);
+    }
+
+    .topbar .left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      color:#dceee7;
+      font-size:14px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.08);
+      text-decoration:none;
+      color:#f5f7f6;
+      font-size:14px;
+      transition: all 0.15s ease;
+      white-space:nowrap;
+    }
+    .pill:hover{
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.35);
+      transform: translateY(-1px);
+    }
+
+    .book{
+      background:#e8f5f0;
+      color:#0b3d2e;
+      border:1px solid rgba(255,255,255,0.0);
+      font-weight:bold;
+    }
+    .book:hover{
+      background:#f2fbf7;
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+    .hero{
+      text-align:center;
+      margin-top:22px;
+      padding:10px 10px 0;
     }
 
     .avatar{
@@ -41,26 +93,37 @@
       border-radius:50%;
       object-fit:cover;
       border:3px solid rgba(255,255,255,0.6);
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      box-shadow: 0 0 20px rgba(0,0,0,0.28);
     }
 
     h1{
-      margin:0;
-      font-size:32px;
-      letter-spacing:0.5px;
+      margin:14px 0 6px;
+      font-size:34px;
+      letter-spacing:0.4px;
     }
 
-    .sub{
+    .headline{
       color:#dceee7;
       font-size:16px;
+      opacity:0.95;
+      margin:0 auto;
+      max-width:840px;
+      line-height:1.55;
+    }
+
+    .mini{
+      margin-top:10px;
+      color:#cfe7de;
+      font-size:14px;
       opacity:0.9;
     }
 
+    /* Cards */
     .cards{
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap:22px;
-      margin-top:25px;
+      margin-top:26px;
     }
 
     .card{
@@ -76,6 +139,8 @@
       flex-direction:column;
       align-items:center;
       gap:14px;
+      min-height: 240px;
+      justify-content: center;
     }
 
     .card:hover{
@@ -85,8 +150,8 @@
     }
 
     .icon{
-      width:70px;
-      height:70px;
+      width:72px;
+      height:72px;
       border-radius:50%;
       background: rgba(255,255,255,0.15);
       display:flex;
@@ -99,14 +164,16 @@
     .card h2{
       margin:0;
       font-size:22px;
-      letter-spacing:0.3px;
+      letter-spacing:0.2px;
     }
 
     .tag{
       color:#d7ebe3;
       font-size:14px;
       text-align:center;
-      opacity:0.9;
+      opacity:0.92;
+      line-height:1.45;
+      max-width: 320px;
     }
 
     .enter{
@@ -123,10 +190,18 @@
     }
 
     footer{
-      margin-top:36px;
-      font-size:13px;
+      text-align:center;
+      margin-top:26px;
       color:#cfe7de;
       opacity:0.85;
+      font-size:13px;
+      line-height:1.45;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 520px){
+      h1{ font-size:30px; }
+      .topbar{ justify-content:center; }
     }
   </style>
 </head>
@@ -134,62 +209,78 @@
 
   <div class="container">
 
-    <div class="top">
-      <img class="avatar" src="profile.jpg" alt="Mohd Danish Khan"/>
-      <h1>Mohd Danish Khan</h1>
-      <div class="sub">Three doors. Choose your context.</div>
+    <!-- Quick contact strip -->
+    <div class="topbar">
+      <div class="left">
+        <span><i class="fa-solid fa-location-dot"></i> Mannheim, Germany</span>
+        <span>·</span>
+        <span>Available immediately</span>
+        <span>·</span>
+        <span>Willing to relocate</span>
+      </div>
+
+      <div class="right" style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="pill" href="mailto:mkhan3@mbs.education">
+          <i class="fa-solid fa-envelope"></i> Email
+        </a>
+
+        <a class="pill" href="https://www.linkedin.com/in/danishkhan08" target="_blank">
+          <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </a>
+
+        <a class="pill" href="Danish_Khan_CV.pdf" target="_blank">
+          <i class="fa-solid fa-file-arrow-down"></i> CV
+        </a>
+
+        <a class="pill book" href="YOUR_CALENDLY_LINK" target="_blank">
+          <i class="fa-regular fa-calendar"></i> Book appointment
+        </a>
+      </div>
     </div>
 
+    <!-- Hero -->
+    <div class="hero">
+      <img class="avatar" src="profile.jpg" alt="Danish Khan"/>
+      <h1>Danish Khan</h1>
+
+      <p class="headline">
+        MBA graduate and operations leader blending structured industrial execution with startup agility.
+        I build scalable supply chain and operations systems, improve service reliability, and drive measurable cost and performance gains.
+      </p>
+
+      <div class="mini">
+        Choose a view: professional profile, personal side, or an interactive chatbot.
+      </div>
+    </div>
+
+    <!-- Doors -->
     <div class="cards">
 
-      <!-- Professional -->
       <a class="card" href="professional.html">
-        <div class="icon">
-          <i class="fa-solid fa-briefcase"></i>
-        </div>
+        <div class="icon"><i class="fa-solid fa-briefcase"></i></div>
         <h2>Professional</h2>
-        <div class="tag">
-          MBA · Operations · Supply Chain · Analytics · CV · Projects
-        </div>
-        <div class="enter">
-          Enter Professional <i class="fa-solid fa-arrow-right"></i>
-        </div>
+        <div class="tag">CV · Experience · Projects · Skills · Impact highlights</div>
+        <div class="enter">Enter <i class="fa-solid fa-arrow-right"></i></div>
       </a>
 
-      <!-- Personal -->
       <a class="card" href="personal.html">
-        <div class="icon">
-          <i class="fa-solid fa-camera-retro"></i>
-        </div>
+        <div class="icon"><i class="fa-solid fa-camera-retro"></i></div>
         <h2>Personal</h2>
-        <div class="tag">
-          Photography · Volunteering · Life · Learning · Community
-        </div>
-        <div class="enter">
-          Enter Personal <i class="fa-solid fa-arrow-right"></i>
-        </div>
+        <div class="tag">Photography · Volunteering · Learning · Community</div>
+        <div class="enter">Enter <i class="fa-solid fa-arrow-right"></i></div>
       </a>
 
-      <!-- Chatbot -->
       <a class="card" href="chatbot.html">
-        <div class="icon">
-          <i class="fa-solid fa-robot"></i>
-        </div>
+        <div class="icon"><i class="fa-solid fa-robot"></i></div>
         <h2>Chatbot</h2>
-        <div class="tag">
-          Ask about my work · Projects · Experience · Thinking
-        </div>
-        <div class="enter">
-          Talk to Bot <i class="fa-solid fa-arrow-right"></i>
-        </div>
+        <div class="tag">Ask about my work, projects, strengths, and how I approach problems</div>
+        <div class="enter">Talk <i class="fa-solid fa-arrow-right"></i></div>
       </a>
 
     </div>
 
     <footer>
-      Hiring managers → Professional.  
-      Humans → Personal.  
-      Curious minds → Chatbot.
+      Quick note: The “Professional” section is optimized for recruiters and hiring managers.
     </footer>
 
   </div>
