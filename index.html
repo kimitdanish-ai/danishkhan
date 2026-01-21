@@ -3,169 +3,196 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Danish Khan</title>
+  <title>Mohd Danish Khan</title>
 
   <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
     body{
       font-family: Arial, sans-serif;
-      margin: 0;
-      color:#f4f4f4;
-      background: radial-gradient(circle at top, #123b2a, #0b241a);
-      min-height: 100vh;
+      margin:0;
+      min-height:100vh;
+      background: linear-gradient(135deg, #0b3d2e, #0f5c43);
+      color:#f5f7f6;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
     .container{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 42px 20px;
+      max-width:1000px;
+      width:100%;
+      padding:30px 20px;
+      text-align:center;
     }
 
     .top{
       display:flex;
-      gap:18px;
+      flex-direction:column;
       align-items:center;
-      flex-wrap:wrap;
-      margin-bottom:36px;
+      gap:14px;
+      margin-bottom:34px;
     }
 
     .avatar{
-      width:110px;
-      height:110px;
+      width:120px;
+      height:120px;
       border-radius:50%;
       object-fit:cover;
-      border:3px solid rgba(255,255,255,0.25);
+      border:3px solid rgba(255,255,255,0.6);
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
     }
 
     h1{
       margin:0;
-      font-size: 2.1rem;
+      font-size:32px;
+      letter-spacing:0.5px;
     }
 
     .sub{
-      margin-top:6px;
-      color:#b9d1c4;
-      font-size: 1rem;
+      color:#dceee7;
+      font-size:16px;
+      opacity:0.9;
     }
 
     .cards{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap:22px;
-      margin-top:12px;
+      margin-top:25px;
     }
 
     .card{
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.15);
       border-radius:18px;
-      padding:24px;
+      padding:26px 22px;
       text-decoration:none;
-      color:#f4f4f4;
-      border:1px solid rgba(255,255,255,0.18);
-      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+      color:#f5f7f6;
+      backdrop-filter: blur(6px);
+      transition: all 0.2s ease;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:14px;
     }
 
     .card:hover{
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      transform: translateY(-6px) scale(1.01);
       background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.35);
     }
 
     .icon{
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color:#9fe0c3;
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      background: rgba(255,255,255,0.15);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:28px;
+      box-shadow: inset 0 0 12px rgba(0,0,0,0.25);
     }
 
-    h2{
-      margin: 8px 0 6px;
-      font-size: 1.4rem;
+    .card h2{
+      margin:0;
+      font-size:22px;
+      letter-spacing:0.3px;
     }
 
     .tag{
-      color:#cfe6db;
-      font-size: 0.95rem;
-      line-height: 1.5;
+      color:#d7ebe3;
+      font-size:14px;
+      text-align:center;
+      opacity:0.9;
     }
 
-    .btnrow{
-      margin-top:16px;
-    }
-
-    .btn{
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,0.3);
-      background: rgba(0,0,0,0.25);
-      font-size: 0.95rem;
-      color:#e9fff6;
-      transition: background 0.12s ease, transform 0.08s ease;
-    }
-
-    .btn:hover{
-      background:#0f3c2a;
-      transform: translateY(-1px);
+    .enter{
+      margin-top:8px;
+      padding:10px 18px;
+      border-radius:999px;
+      background:#e8f5f0;
+      color:#0b3d2e;
+      font-weight:bold;
+      font-size:14px;
+      display:flex;
+      align-items:center;
+      gap:8px;
     }
 
     footer{
-      margin-top:48px;
-      color:#a9cbbd;
-      font-size:14px;
+      margin-top:36px;
+      font-size:13px;
+      color:#cfe7de;
       opacity:0.85;
     }
   </style>
 </head>
 <body>
 
-<div class="container">
+  <div class="container">
 
-  <div class="top">
-    <img class="avatar" src="dp.png" alt="Mohd Danish Khan"/>
-    <div>
+    <div class="top">
+      <img class="avatar" src="profile.jpg" alt="Mohd Danish Khan"/>
       <h1>Mohd Danish Khan</h1>
-      <div class="sub">Two sides. Same person. Choose your path.</div>
+      <div class="sub">Three doors. Choose your context.</div>
     </div>
+
+    <div class="cards">
+
+      <!-- Professional -->
+      <a class="card" href="professional.html">
+        <div class="icon">
+          <i class="fa-solid fa-briefcase"></i>
+        </div>
+        <h2>Professional</h2>
+        <div class="tag">
+          MBA · Operations · Supply Chain · Analytics · CV · Projects
+        </div>
+        <div class="enter">
+          Enter Professional <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </a>
+
+      <!-- Personal -->
+      <a class="card" href="personal.html">
+        <div class="icon">
+          <i class="fa-solid fa-camera-retro"></i>
+        </div>
+        <h2>Personal</h2>
+        <div class="tag">
+          Photography · Volunteering · Life · Learning · Community
+        </div>
+        <div class="enter">
+          Enter Personal <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </a>
+
+      <!-- Chatbot -->
+      <a class="card" href="chatbot.html">
+        <div class="icon">
+          <i class="fa-solid fa-robot"></i>
+        </div>
+        <h2>Chatbot</h2>
+        <div class="tag">
+          Ask about my work · Projects · Experience · Thinking
+        </div>
+        <div class="enter">
+          Talk to Bot <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </a>
+
+    </div>
+
+    <footer>
+      Hiring managers → Professional.  
+      Humans → Personal.  
+      Curious minds → Chatbot.
+    </footer>
+
   </div>
-
-  <div class="cards">
-
-    <!-- PROFESSIONAL -->
-    <a class="card" href="professional.html">
-      <div class="icon"><i class="fa-solid fa-briefcase"></i></div>
-      <h2>Professional</h2>
-      <p class="tag">
-        MBA · Operations · Supply Chain · Analytics · CV · Case Studies
-      </p>
-      <div class="btnrow">
-        <span class="btn">Enter Professional</span>
-      </div>
-    </a>
-
-    <!-- PERSONAL -->
-    <a class="card" href="personal.html">
-      <div class="icon"><i class="fa-solid fa-camera-retro"></i></div>
-      <h2>Personal</h2>
-      <p class="tag">
-        Photography · Volunteering · Interests · Life beyond work
-      </p>
-      <div class="btnrow">
-        <span class="btn">Enter Personal</span>
-      </div>
-    </a>
-
-  </div>
-
-  <footer>
-    If you’re here to hire me, the left card saves time.  
-    If you’re here out of curiosity, both sides are honest.
-  </footer>
-
-</div>
 
 </body>
 </html>
-
