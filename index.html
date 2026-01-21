@@ -4,94 +4,168 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Danish Khan</title>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     body{
       font-family: Arial, sans-serif;
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 28px 18px;
-      color:#222;
-      background:#fff;
+      margin: 0;
+      color:#f4f4f4;
+      background: radial-gradient(circle at top, #123b2a, #0b241a);
+      min-height: 100vh;
     }
+
+    .container{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 42px 20px;
+    }
+
     .top{
       display:flex;
       gap:18px;
       align-items:center;
       flex-wrap:wrap;
-      margin-top:20px;
+      margin-bottom:36px;
     }
+
     .avatar{
-      width:110px;height:110px;border-radius:50%;
-      object-fit:cover;border:2px solid #ddd;
+      width:110px;
+      height:110px;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid rgba(255,255,255,0.25);
     }
-    h1{ margin:0; }
-    .sub{ margin:6px 0 0; color:#555; }
+
+    h1{
+      margin:0;
+      font-size: 2.1rem;
+    }
+
+    .sub{
+      margin-top:6px;
+      color:#b9d1c4;
+      font-size: 1rem;
+    }
+
     .cards{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap:16px;
-      margin-top:28px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap:22px;
+      margin-top:12px;
     }
+
     .card{
-      border:1px solid #e5e5e5;
-      border-radius:14px;
-      padding:18px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      border-radius:18px;
+      padding:24px;
       text-decoration:none;
-      color:#222;
-      display:block;
-      transition: transform 0.08s ease-in-out;
+      color:#f4f4f4;
+      border:1px solid rgba(255,255,255,0.18);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
     }
-    .card:hover{ transform: translateY(-2px); }
-    .tag{ color:#666; margin-top:6px; }
-    .btnrow{ margin-top:14px; }
+
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      background: rgba(255,255,255,0.12);
+    }
+
+    .icon{
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color:#9fe0c3;
+    }
+
+    h2{
+      margin: 8px 0 6px;
+      font-size: 1.4rem;
+    }
+
+    .tag{
+      color:#cfe6db;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .btnrow{
+      margin-top:16px;
+    }
+
     .btn{
       display:inline-block;
-      padding:10px 12px;
-      border-radius:10px;
-      border:1px solid #ccc;
-      text-decoration:none;
-      margin-right:10px;
-      color:#222;
-      background:#fafafa;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.3);
+      background: rgba(0,0,0,0.25);
+      font-size: 0.95rem;
+      color:#e9fff6;
+      transition: background 0.12s ease, transform 0.08s ease;
     }
+
+    .btn:hover{
+      background:#0f3c2a;
+      transform: translateY(-1px);
+    }
+
     footer{
-      margin-top:34px;
-      color:#777;
+      margin-top:48px;
+      color:#a9cbbd;
       font-size:14px;
+      opacity:0.85;
     }
   </style>
 </head>
 <body>
 
+<div class="container">
+
   <div class="top">
     <img class="avatar" src="profile.jpg" alt="Danish Khan"/>
     <div>
       <h1>Danish Khan</h1>
-      <div class="sub">Two sides. Same person. Choose what you came for.</div>
+      <div class="sub">Two sides. Same person. Choose your path.</div>
     </div>
   </div>
 
   <div class="cards">
+
+    <!-- PROFESSIONAL -->
     <a class="card" href="professional.html">
+      <div class="icon"><i class="fa-solid fa-briefcase"></i></div>
       <h2>Professional</h2>
-      <p class="tag">MBA · Operations & Supply Chain · Analytics · Projects · CV</p>
+      <p class="tag">
+        MBA · Operations · Supply Chain · Analytics · CV · Case Studies
+      </p>
       <div class="btnrow">
         <span class="btn">Enter Professional</span>
       </div>
     </a>
 
+    <!-- PERSONAL -->
     <a class="card" href="personal.html">
+      <div class="icon"><i class="fa-solid fa-camera-retro"></i></div>
       <h2>Personal</h2>
-      <p class="tag">Photography · Volunteering · Interests · Life outside work</p>
+      <p class="tag">
+        Photography · Volunteering · Interests · Life beyond work
+      </p>
       <div class="btnrow">
         <span class="btn">Enter Personal</span>
       </div>
     </a>
+
   </div>
 
   <footer>
-    Tip: If you’re a recruiter, use “Professional”. If you’re not, also use “Professional”. Humans hire humans.
+    If you’re here to hire me, the left card saves time.  
+    If you’re here out of curiosity, both sides are honest.
   </footer>
+
+</div>
 
 </body>
 </html>
+
