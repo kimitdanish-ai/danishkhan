@@ -1,140 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Danish Khan | MBA | Operations & Supply Chain</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Danish Khan</title>
   <style>
-    body {
+    body{
       font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      line-height: 1.6;
-      color: #222;
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 28px 18px;
+      color:#222;
+      background:#fff;
     }
-
-    header {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-      flex-wrap: wrap;
+    .top{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      flex-wrap:wrap;
+      margin-top:20px;
     }
-
-    img.profile {
-      width: 160px;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 2px solid #ddd;
+    .avatar{
+      width:110px;height:110px;border-radius:50%;
+      object-fit:cover;border:2px solid #ddd;
     }
-
-    h1 {
-      margin-bottom: 5px;
+    h1{ margin:0; }
+    .sub{ margin:6px 0 0; color:#555; }
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap:16px;
+      margin-top:28px;
     }
-
-    h2 {
-      margin-top: 40px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
+    .card{
+      border:1px solid #e5e5e5;
+      border-radius:14px;
+      padding:18px;
+      text-decoration:none;
+      color:#222;
+      display:block;
+      transition: transform 0.08s ease-in-out;
     }
-
-    ul {
-      padding-left: 18px;
+    .card:hover{ transform: translateY(-2px); }
+    .tag{ color:#666; margin-top:6px; }
+    .btnrow{ margin-top:14px; }
+    .btn{
+      display:inline-block;
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid #ccc;
+      text-decoration:none;
+      margin-right:10px;
+      color:#222;
+      background:#fafafa;
     }
-
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .tagline {
-      font-weight: bold;
-    }
-
-    .meta {
-      color: #555;
-    }
-
-    .cta {
-      margin-top: 15px;
+    footer{
+      margin-top:34px;
+      color:#777;
+      font-size:14px;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <img src="dp.png" alt="Danish Khan" class="profile">
-
-  <div>
-    <h1>Danish Khan</h1>
-    <p class="tagline">MBA | Operations & Supply Chain | Analytics</p>
-    <p class="meta">
-      Mannheim, Germany · Available immediately · Willing to relocate
-    </p>
-
-    <div class="cta">
-      <a href="Danish_Khan_CV_.pdf" target="_blank">Download CV (PDF)</a> |
-      <a href="https://www.linkedin.com/in/danishkhan08">LinkedIn</a> |
-      <a href="mailto:mkhan3@mbs.education">Email</a>
+  <div class="top">
+    <img class="avatar" src="profile.jpg" alt="Danish Khan"/>
+    <div>
+      <h1>Danish Khan</h1>
+      <div class="sub">Two sides. Same person. Choose what you came for.</div>
     </div>
   </div>
-</header>
 
-<h2>Profile</h2>
-<p>
-MBA graduate with 10+ years of experience across manufacturing, AgTech, and
-operations leadership. Strong background in supply chain planning, process
-excellence, and data-driven decision-making. Experienced in both structured
-industrial environments and fast-scaling startups.
-</p>
+  <div class="cards">
+    <a class="card" href="professional.html">
+      <h2>Professional</h2>
+      <p class="tag">MBA · Operations & Supply Chain · Analytics · Projects · CV</p>
+      <div class="btnrow">
+        <span class="btn">Enter Professional</span>
+      </div>
+    </a>
 
-<h2>Core Strengths</h2>
-<ul>
-  <li>Operations & Supply Chain Management (end-to-end execution)</li>
-  <li>Forecasting, inventory planning, S&OP, and logistics optimisation</li>
-  <li>Lean, Kaizen, DMAIC, and structured problem solving</li>
-  <li>ERP, PLM, and data systems leadership (SAP, Oracle, Power BI)</li>
-</ul>
+    <a class="card" href="personal.html">
+      <h2>Personal</h2>
+      <p class="tag">Photography · Volunteering · Interests · Life outside work</p>
+      <div class="btnrow">
+        <span class="btn">Enter Personal</span>
+      </div>
+    </a>
+  </div>
 
-<h2>Experience Highlights</h2>
-<ul>
-  <li>
-    <strong>Operations Manager – Gramophone (AgTech)</strong><br>
-    Built and scaled operations across 2,000+ villages, reduced delivery
-    costs by 25%, improved in-stock availability to 92%, and led ERP-driven
-    digitisation initiatives.
-  </li>
-  <li>
-    <strong>Program Manager – JCB</strong><br>
-    Led Euro IV compliance programs, managed cross-functional NPIP delivery,
-    improved machine uptime by 40%, and contributed to patented product designs.
-  </li>
-</ul>
-
-<h2>Education</h2>
-<ul>
-  <li>
-    <strong>MBA – Mannheim Business School</strong><br>
-    Focus: Strategy, Operations, Supply Chain Analytics, Digital Transformation
-  </li>
-  <li>
-    <strong>B.Tech – Industrial Engineering (NIT Trichy)</strong><br>
-    Top 1% national entrance ranking
-  </li>
-</ul>
-
-<h2>Languages & Tools</h2>
-<ul>
-  <li>English (C1), German (B1 → B2 in progress)</li>
-  <li>Power BI, Excel (advanced), SQL, Python, SAP, Oracle ERP</li>
-</ul>
+  <footer>
+    Tip: If you’re a recruiter, use “Professional”. If you’re not, also use “Professional”. Humans hire humans.
+  </footer>
 
 </body>
 </html>
-
