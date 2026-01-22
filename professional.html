@@ -3,98 +3,713 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Danish Khan | Professional</title>
+  <title>Professional | Danish Khan</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
+    :root{
+      --bg-0:#071a14;
+      --bg-1:#0b2a20;
+      --bg-2:#0f3a2c;
+
+      --panel: rgba(255,255,255,0.06);
+      --panel-2: rgba(255,255,255,0.085);
+      --border: rgba(255,255,255,0.12);
+      --border-2: rgba(255,255,255,0.18);
+
+      --gold:#d6c28f;
+      --gold-2:#cbb57d;
+
+      --text:#f4f6f5;
+      --muted: rgba(244,246,245,0.78);
+      --muted-2: rgba(244,246,245,0.62);
+
+      --shadow: 0 22px 60px rgba(0,0,0,0.45);
+      --shadow-soft: 0 12px 30px rgba(0,0,0,0.30);
+
+      --radius-xl:22px;
+      --radius-lg:16px;
+      --radius-pill:999px;
+    }
+
+    *{ box-sizing:border-box; }
     body{
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 28px 18px;
-      line-height: 1.6;
-      color:#222;
+      margin:0;
+      min-height:100vh;
+      font-family: Inter, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% 15%, rgba(214,194,143,0.10), transparent 55%),
+        radial-gradient(900px 650px at 85% 25%, rgba(16,92,66,0.35), transparent 60%),
+        radial-gradient(900px 650px at 40% 95%, rgba(9,40,30,0.65), transparent 55%),
+        linear-gradient(135deg, var(--bg-0), var(--bg-1) 45%, var(--bg-2));
+      display:flex;
+      justify-content:center;
+      padding: 28px 16px;
     }
-    header{
-      display:flex; gap:22px; align-items:center; flex-wrap:wrap;
-      border-bottom: 1px solid #eee; padding-bottom:16px;
+
+    .container{ width:100%; max-width:1120px; }
+
+    /* Top bar */
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      padding:12px 14px;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.045));
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(10px);
     }
-    .avatar{
-      width:140px;height:140px;border-radius:50%;
-      object-fit:cover;border:2px solid #ddd;
+
+    .crumbs{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      color: var(--muted);
+      font-size: 13.5px;
     }
-    h1{ margin:0; }
-    .meta{ color:#555; margin-top:6px; }
-    nav{ margin-top:10px; }
-    a{ color:#0066cc; text-decoration:none; }
-    a:hover{ text-decoration:underline; }
-    h2{ margin-top:28px; border-bottom:1px solid #eee; padding-bottom:6px; }
-    ul{ padding-left:18px; }
-    .pillrow a{
-      display:inline-block; margin-right:10px; margin-top:8px;
-      padding:8px 10px; border:1px solid #ddd; border-radius:10px;
-      background:#fafafa; color:#222; text-decoration:none;
+
+    .pillrow{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 12px;
+      border-radius: var(--radius-pill);
+      border:1px solid var(--border);
+      background: rgba(0,0,0,0.14);
+      color: var(--text);
+      text-decoration:none;
+      font-size:13.5px;
+      white-space:nowrap;
+      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
     }
-    .pillrow a:hover{ background:#f3f3f3; }
-    .back{ display:inline-block; margin-top:16px; }
+    .pill:hover{
+      transform: translateY(-1px);
+      border-color: var(--border-2);
+      background: rgba(255,255,255,0.07);
+    }
+    .pill.gold{
+      border-color: rgba(214,194,143,0.55);
+      background: rgba(214,194,143,0.12);
+    }
+    .pill.gold:hover{
+      border-color: rgba(214,194,143,0.75);
+      background: rgba(214,194,143,0.16);
+    }
+
+    /* Hero */
+    .hero{
+      margin-top: 18px;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      overflow:hidden;
+    }
+
+    .heroInner{
+      padding: 20px 18px 18px;
+      display:grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 18px;
+      align-items:start;
+    }
+
+    h1{
+      margin:0 0 8px;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    .sub{
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14.2px;
+      margin:0;
+      max-width: 720px;
+    }
+
+    .kpis{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+
+    .kpi{
+      border:1px solid rgba(214,194,143,0.35);
+      background: rgba(214,194,143,0.08);
+      border-radius: 18px;
+      padding: 12px 12px;
+    }
+    .kpi .label{ color: var(--muted-2); font-size: 12.5px; }
+    .kpi .value{ margin-top:3px; font-size: 13.8px; font-weight:600; color: rgba(244,246,245,0.94); }
+
+    .heroFooter{
+      border-top:1px solid var(--border);
+      padding: 12px 18px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
+      color: var(--muted-2);
+      font-size: 13px;
+    }
+
+    /* Tabs */
+    .tabs{
+      margin-top: 16px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .tabBtn{
+      cursor:pointer;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,0.14);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 13.5px;
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+      user-select:none;
+    }
+    .tabBtn:hover{ transform: translateY(-1px); border-color: var(--border-2); background: rgba(255,255,255,0.07); }
+    .tabBtn.active{
+      border-color: rgba(214,194,143,0.55);
+      background: rgba(214,194,143,0.12);
+    }
+
+    /* Sections */
+    .section{
+      margin-top: 14px;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      overflow:hidden;
+      display:none;
+    }
+    .section.active{ display:block; }
+
+    .sectionHeader{
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border);
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
+    }
+
+    .sectionHeader h2{
+      margin:0;
+      font-size: 16.5px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+    .sectionHeader .hint{
+      color: var(--muted-2);
+      font-size: 12.8px;
+    }
+
+    .grid{
+      padding: 16px 18px 18px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+
+    .card{
+      grid-column: span 6;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,0.12);
+      border-radius: 18px;
+      padding: 14px 14px;
+      position: relative;
+      overflow:hidden;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      top:-60px;
+      right:-120px;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle at 30% 30%, rgba(214,194,143,0.16), transparent 60%);
+      transform: rotate(12deg);
+      pointer-events:none;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      border-color: rgba(214,194,143,0.35);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .cardTitle{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .icon{
+      width:42px; height:42px;
+      border-radius: 14px;
+      border:1px solid rgba(214,194,143,0.35);
+      background: rgba(0,0,0,0.16);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--gold);
+      flex: 0 0 auto;
+    }
+    .card h3{
+      margin:0;
+      font-size: 14.8px;
+      font-weight: 600;
+    }
+    .meta{
+      margin-top:4px;
+      color: var(--muted-2);
+      font-size: 12.6px;
+    }
+    .body{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13.4px;
+      line-height: 1.55;
+    }
+
+    /* Expandable details */
+    details{
+      margin-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      padding-top: 10px;
+    }
+    summary{
+      cursor:pointer;
+      list-style:none;
+      color: rgba(244,246,245,0.92);
+      font-size: 13.4px;
+      font-weight: 600;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .bullets{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13.2px;
+      line-height: 1.55;
+    }
+
+    /* Skills chips */
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 6px;
+    }
+    .chip{
+      border:1px solid rgba(214,194,143,0.45);
+      background: rgba(214,194,143,0.10);
+      color: rgba(244,246,245,0.95);
+      padding: 9px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      cursor:pointer;
+      user-select:none;
+      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+      white-space:nowrap;
+    }
+    .chip:hover{ transform: translateY(-1px); background: rgba(214,194,143,0.16); border-color: rgba(214,194,143,0.75); }
+    .chip.active{ outline: 2px solid rgba(214,194,143,0.45); }
+
+    .note{
+      padding: 0 18px 18px;
+      color: var(--muted-2);
+      font-size: 12.8px;
+      line-height: 1.5;
+    }
+
+    .twoCol .card{ grid-column: span 6; }
+    .full .card{ grid-column: span 12; }
+
+    @media (max-width: 920px){
+      .heroInner{ grid-template-columns: 1fr; }
+      .card{ grid-column: span 12; }
+    }
   </style>
 </head>
+
 <body>
+  <div class="container">
 
-  <a class="back" href="index.html">← Back to arrival</a>
-
-  <header>
-    <img class="avatar" src="profile.jpg" alt="Mohd Danish Khan"/>
-    <div>
-      <h1>Mohd Danish Khan</h1>
-      <div class="meta"><strong>MBA | Operations & Supply Chain | Analytics</strong></div>
-      <div class="meta">Mannheim, Germany · Available immediately · Willing to relocate</div>
-
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="crumbs">
+        <span><i class="fa-solid fa-briefcase"></i> Professional</span>
+        <span>·</span>
+        <span>Interactive overview (not a PDF cosplay)</span>
+      </div>
       <div class="pillrow">
-        <a href="Danish_Khan_CV_.pdf" target="_blank">Download CV</a>
-        <a href="mailto:mkhan3@mbs.education">Email</a>
-        <a href="https://www.linkedin.com/in/danishkhan08" target="_blank">LinkedIn</a>
+        <a class="pill" href="index.html"><i class="fa-solid fa-arrow-left"></i> Home</a>
+        <a class="pill" href="personal.html"><i class="fa-solid fa-camera-retro"></i> Personal</a>
+        <a class="pill" href="chatbot.html"><i class="fa-solid fa-robot"></i> Chatbot</a>
+        <a class="pill" href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a class="pill gold" href="Danish_Khan_CV.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
       </div>
     </div>
-  </header>
 
-  <h2>Profile</h2>
-  <p>
-    MBA graduate with 10+ years of experience across manufacturing, AgTech, and operations leadership.
-    Strong in supply chain planning, process excellence, and data-driven execution.
-  </p>
+    <!-- Hero -->
+    <div class="hero">
+      <div class="heroInner">
+        <div>
+          <h1>Danish Khan</h1>
+          <p class="sub">
+            Operations & supply chain leader blending <strong>industrial discipline</strong> with <strong>startup execution</strong>.
+            I build scalable systems, improve reliability, and deliver measurable performance gains.
+          </p>
 
-  <h2>Highlights</h2>
-  <ul>
-    <li>Scaled a direct-to-farmer network across 2,000+ villages; reduced delivery cost by 25% and expanded coverage by 60%.</li>
-    <li>Designed forecasting & inventory planning models achieving 92% in-stock availability.</li>
-    <li>Led Euro IV compliance delivery for backhoe loaders; ensured production readiness and protected market position.</li>
-    <li>Improved machine uptime by 40% through robust cooling system design for harsh environments.</li>
-  </ul>
+          <div class="tabs" style="margin-top:14px;">
+            <div class="tabBtn active" data-tab="highlights"><i class="fa-solid fa-sparkles"></i> Highlights</div>
+            <div class="tabBtn" data-tab="cases"><i class="fa-solid fa-diagram-project"></i> Case stories</div>
+            <div class="tabBtn" data-tab="experience"><i class="fa-solid fa-timeline"></i> Experience</div>
+            <div class="tabBtn" data-tab="skills"><i class="fa-solid fa-toolbox"></i> Skills</div>
+          </div>
+        </div>
 
-  <h2>Experience</h2>
-  <ul>
-    <li><strong>Gramophone (AgTech) – Operations Manager</strong> (Oct 2021 – Feb 2023)</li>
-    <li><strong>JCB – Program Manager, Product & Industrial Operations</strong> (Jun 2020 – Oct 2021)</li>
-  </ul>
+        <div class="kpis">
+          <div class="kpi">
+            <div class="label">Focus</div>
+            <div class="value">Ops excellence · Supply chain · Business improvement</div>
+          </div>
+          <div class="kpi">
+            <div class="label">Strength</div>
+            <div class="value">Structured execution + stakeholder alignment</div>
+          </div>
+          <div class="kpi">
+            <div class="label">Availability</div>
+            <div class="value">Immediate · Open to DACH/Benelux</div>
+          </div>
+        </div>
+      </div>
 
-  <h2>Education</h2>
-  <ul>
-    <li><strong>MBA – Mannheim Business School</strong> (Sep 2024 – Dec 2025)</li>
-    <li><strong>B.Tech – Industrial Engineering (NIT Trichy)</strong> (Jul 2009 – May 2013)</li>
-  </ul>
+      <div class="heroFooter">
+        <div>Prefer a fast overview? Start with <strong>Highlights</strong>. Want depth? Open a <strong>Case story</strong>.</div>
+        <div>
+          <a class="pill gold" href="mailto:mkhan3@mbs.education?subject=Interview%20discussion" target="_blank">
+            <i class="fa-solid fa-envelope"></i> Contact
+          </a>
+        </div>
+      </div>
+    </div>
 
-  <h2>Skills</h2>
-  <ul>
-    <li>Operations Management, Supply Chain Planning, S&OP, Inventory Optimization</li>
-    <li>Lean / Kaizen / DMAIC, Root Cause Analysis, CAPA</li>
-    <li>Power BI, Excel (advanced), SQL, Python; SAP, Oracle ERP; PLM/BOM/Change Management</li>
-    <li>English (C1), German (B1 → B2)</li>
-  </ul>
+    <!-- HIGHLIGHTS -->
+    <section class="section active" id="highlights">
+      <div class="sectionHeader">
+        <h2>Highlights</h2>
+        <div class="hint">Click “Details” to expand without drowning the page.</div>
+      </div>
 
-  <h2>Projects</h2>
-  <ul>
-    <li><strong>Platform X (VNR Group) – Growth Strategy (DACH)</strong>: persona mapping, onboarding framework, market-entry model.</li>
-    <li><strong>Infinity e.V.</strong>: social impact project management in Mannheim.</li>
-  </ul>
+      <div class="grid twoCol">
+        <div class="card">
+          <div class="cardTitle">
+            <div class="icon"><i class="fa-solid fa-gears"></i></div>
+            <div>
+              <h3>Operations systems that stick</h3>
+              <div class="meta">Process design · KPI cadence · Standard work</div>
+            </div>
+          </div>
+          <div class="body">
+            Build operating rhythms that make performance measurable, repeatable, and improvable.
+          </div>
+          <details>
+            <summary><i class="fa-solid fa-chevron-down"></i> Details</summary>
+            <ul class="bullets">
+              <li>Define metrics hierarchy (leading/lagging)</li>
+              <li>Weekly operating cadence and escalation paths</li>
+              <li>Root-cause routines and continuous improvement loops</li>
+            </ul>
+          </details>
+        </div>
 
+        <div class="card">
+          <div class="cardTitle">
+            <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+            <div>
+              <h3>Data-driven decision making</h3>
+              <div class="meta">Analytics · Tradeoffs · Execution planning</div>
+            </div>
+          </div>
+          <div class="body">
+            Turn messy operations reality into clear priorities and decisions people can execute.
+          </div>
+          <details>
+            <summary><i class="fa-solid fa-chevron-down"></i> Details</summary>
+            <ul class="bullets">
+              <li>Translate analysis into “do this next” actions</li>
+              <li>Build simple models for planning and prioritization</li>
+              <li>Communicate to mixed technical/non-technical teams</li>
+            </ul>
+          </details>
+        </div>
+
+        <div class="card">
+          <div class="cardTitle">
+            <div class="icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <div>
+              <h3>Manufacturing + product lifecycle</h3>
+              <div class="meta">Launch readiness · Compliance · Cross-functional delivery</div>
+            </div>
+          </div>
+          <div class="body">
+            Experience in industrial environments where execution quality matters.
+          </div>
+          <details>
+            <summary><i class="fa-solid fa-chevron-down"></i> Details</summary>
+            <ul class="bullets">
+              <li>Stage-gate delivery under constraints</li>
+              <li>Supplier and engineering coordination</li>
+              <li>Operational readiness and reliability focus</li>
+            </ul>
+          </details>
+        </div>
+
+        <div class="card">
+          <div class="cardTitle">
+            <div class="icon"><i class="fa-solid fa-people-group"></i></div>
+            <div>
+              <h3>Stakeholder alignment</h3>
+              <div class="meta">Workshops · Interviews · Decision frameworks</div>
+            </div>
+          </div>
+          <div class="body">
+            Build clarity quickly and keep teams aligned when priorities collide.
+          </div>
+          <details>
+            <summary><i class="fa-solid fa-chevron-down"></i> Details</summary>
+            <ul class="bullets">
+              <li>Facilitate workshops with clear outputs</li>
+              <li>Define crisp ownership and next steps</li>
+              <li>Communicate tradeoffs without drama</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+
+      <div class="note">
+        Tip: This page is designed for scanning. The CV is for compliance. Humans deserve a better interface.
+      </div>
+    </section>
+
+    <!-- CASE STORIES -->
+    <section class="section" id="cases">
+      <div class="sectionHeader">
+        <h2>Case stories</h2>
+        <div class="hint">Short, structured, and expandable.</div>
+      </div>
+
+      <div class="grid full">
+        <div class="card">
+          <div class="cardTitle">
+            <div class="icon"><i class="fa-solid fa-diagram-project"></i></div>
+            <div>
+              <h3>Platform X Growth Strategy (MBA Project)</h3>
+              <div class="meta">Personas · Prioritization · GTM/onboarding framework (DACH)</div>
+            </div>
+          </div>
+          <div class="body">
+            Built research-backed personas, mapped decision drivers, and translated insights into a practical onboarding/GTM framework.
+          </div>
+          <details>
+            <summary><i class="fa-solid fa-chevron-down"></i> What I did</summary>
+            <ul class="bullets">
+              <li>Conducted internal + partner interviews to capture needs and adoption barriers</li>
+              <li>Created personas and prioritization logic to focus on highest-impact segments</li>
+              <li>Delivered a clear roadmap and communication artifacts for stakeholders</li>
+            </ul>
+          </details>
+        </div>
+
+        <div class="card">
+          <div class="cardTitle">
+            <div class="icon"><i class="fa-solid fa-industry"></i></div>
+            <div>
+              <h3>Industrial product/operations delivery</h3>
+              <div class="meta">Execution · Reliability · Cross-functional coordination</div>
+            </div>
+          </div>
+          <div class="body">
+            Led structured delivery in environments where launch, compliance, and quality are non-negotiable.
+          </div>
+          <details>
+            <summary><i class="fa-solid fa-chevron-down"></i> What this demonstrates</summary>
+            <ul class="bullets">
+              <li>Comfort with constraints, timelines, and high ownership</li>
+              <li>Communication across engineering, suppliers, and operations</li>
+              <li>Bias toward practical implementation over slide perfection</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+
+      <div class="note">
+        Next upgrade: we’ll add 2–3 “mini-case” cards with real metrics from your CV (cost, lead time, reliability, launch).
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="sectionHeader">
+        <h2>Experience timeline</h2>
+        <div class="hint">Expandable entries instead of a long wall of text.</div>
+      </div>
+
+      <div class="grid full">
+        <div class="card">
+          <div class="cardTitle">
+            <div class="icon"><i class="fa-solid fa-building"></i></div>
+            <div>
+              <h3>JCB India (7 years)</h3>
+              <div class="meta">Product/engineering delivery · Compliance · Cross-functional execution</div>
+            </div>
+          </div>
+          <div class="body">
+            Deep industrial execution experience with structured delivery and operational accountability.
+          </div>
+          <details>
+            <summary><i class="fa-solid fa-chevron-down"></i> Details</summary>
+            <ul class="bullets">
+              <li>Add 3–5 strongest bullets here (with numbers)</li>
+              <li>Example: “Improved X by Y% by doing Z”</li>
+              <li>Keep it outcome-first, not task-first</li>
+            </ul>
+          </details>
+        </div>
+
+        <div class="card">
+          <div class="cardTitle">
+            <div class="icon"><i class="fa-solid fa-seedling"></i></div>
+            <div>
+              <h3>AgTech startup experience</h3>
+              <div class="meta">Scaling operations · Process digitization · Governance</div>
+            </div>
+          </div>
+          <div class="body">
+            Hands-on execution in a fast-moving environment where clarity and prioritization matter.
+          </div>
+          <details>
+            <summary><i class="fa-solid fa-chevron-down"></i> Details</summary>
+            <ul class="bullets">
+              <li>Add 3–5 bullets here (systems built, processes improved, measurable outcomes)</li>
+              <li>Focus on execution, ownership, and impact</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+
+      <div class="note">
+        This isn’t your CV. This is the “why you” version. The CV is linked above for formal details.
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="sectionHeader">
+        <h2>Skills (filterable)</h2>
+        <div class="hint">Click a chip to highlight relevant items.</div>
+      </div>
+
+      <div class="grid full">
+        <div class="card">
+          <div class="cardTitle">
+            <div class="icon"><i class="fa-solid fa-toolbox"></i></div>
+            <div>
+              <h3>Core toolkit</h3>
+              <div class="meta">Ops · Supply chain · Continuous improvement · Analytics</div>
+            </div>
+          </div>
+
+          <div class="chips" id="chips">
+            <div class="chip" data-filter="ops">Operations Excellence</div>
+            <div class="chip" data-filter="scm">Supply Chain</div>
+            <div class="chip" data-filter="lean">Lean / CI</div>
+            <div class="chip" data-filter="pm">Program / Project</div>
+            <div class="chip" data-filter="data">Analytics</div>
+            <div class="chip" data-filter="stake">Stakeholder</div>
+          </div>
+
+          <div class="body" id="skillText" style="margin-top:12px;">
+            Click a chip above to see a concise capability snapshot.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        Next: We can add “Role-fit” presets (e.g., Ops Manager / Biz Improvement / Supply Chain) that auto-select chips.
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // Tabs
+    const tabBtns = document.querySelectorAll(".tabBtn");
+    const sections = document.querySelectorAll(".section");
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const id = btn.dataset.tab;
+        sections.forEach(s => s.classList.toggle("active", s.id === id));
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    });
+
+    // Skill chips (simple “interactive” without overengineering)
+    const skillText = document.getElementById("skillText");
+    const chips = document.querySelectorAll("#chips .chip");
+
+    const skillCopy = {
+      ops: "Operations Excellence: build operating cadence, KPI structure, escalation paths, and standard work that improves performance consistently.",
+      scm: "Supply Chain: planning, coordination, reliability focus, and practical improvements to flow, availability, and delivery.",
+      lean: "Lean/CI: problem framing, root-cause routines, prioritization, and implementation that sticks (not just workshops).",
+      pm: "Program/Project: cross-functional delivery, structured execution under constraints, stakeholder alignment, and clear ownership.",
+      data: "Analytics: turning messy data into clear decisions, tradeoffs, and actions teams can execute without confusion.",
+      stake: "Stakeholder: interviews, workshops, and alignment across leadership and teams, with crisp communication and decision clarity."
+    };
+
+    chips.forEach(chip => {
+      chip.addEventListener("click", () => {
+        const isActive = chip.classList.contains("active");
+        chips.forEach(c => c.classList.remove("active"));
+        if (!isActive) chip.classList.add("active");
+
+        const key = chip.dataset.filter;
+        skillText.textContent = (!isActive && skillCopy[key]) ? skillCopy[key] : "Click a chip above to see a concise capability snapshot.";
+      });
+    });
+  </script>
 </body>
 </html>
