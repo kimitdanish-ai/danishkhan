@@ -51,53 +51,51 @@
       max-width:1120px;
     }
 
-    /* ---------------- CHATBOT FLOAT ---------------- */
-
+    /* CHATBOT FLOAT */
     .chatbot-float{
       position: fixed;
       right: 24px;
       bottom: 24px;
       z-index: 999;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:8px;
     }
 
     .chatbot-label{
-      font-size: 12.5px;
-      color: var(--muted);
-      background: rgba(0,0,0,0.35);
-      padding: 6px 10px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(6px);
-      white-space: nowrap;
+      font-size:12.5px;
+      color:var(--muted);
+      background:rgba(0,0,0,0.35);
+      padding:6px 10px;
+      border-radius:var(--radius-pill);
+      border:1px solid var(--border);
+      backdrop-filter:blur(6px);
+      white-space:nowrap;
     }
 
     .chatbot-btn{
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, rgba(214,194,143,0.35), rgba(214,194,143,0.18));
-      border: 1px solid rgba(214,194,143,0.55);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text);
-      font-size: 22px;
-      text-decoration: none;
-      box-shadow: var(--shadow);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      background:linear-gradient(180deg, rgba(214,194,143,0.35), rgba(214,194,143,0.18));
+      border:1px solid rgba(214,194,143,0.55);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--text);
+      font-size:22px;
+      text-decoration:none;
+      box-shadow:var(--shadow);
+      transition:transform 0.15s ease, box-shadow 0.15s ease;
     }
 
     .chatbot-btn:hover{
       transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 28px 70px rgba(0,0,0,0.6);
+      box-shadow:0 28px 70px rgba(0,0,0,0.6);
     }
 
-    /* ---------------- EXISTING STYLES (UNCHANGED) ---------------- */
-
+    /* TOP BAR */
     .topbar{
       display:flex;
       justify-content:space-between;
@@ -161,9 +159,7 @@
       align-items:center;
     }
 
-    .heroText{
-      padding: 10px;
-    }
+    .heroText{ padding:10px; }
 
     h1{
       font-size:38px;
@@ -185,7 +181,6 @@
     }
 
     .photoWrap{
-      position:relative;
       display:flex;
       justify-content:center;
     }
@@ -204,10 +199,11 @@
     .photoFrame img{
       width:100%;
       height:100%;
-      object-fit: cover;
+      object-fit:cover;
       display:block;
     }
 
+    /* CARDS */
     .cards{
       margin-top:42px;
       display:grid;
@@ -231,6 +227,30 @@
       border-color: rgba(214,194,143,0.35);
     }
 
+    .card h2{
+      margin:0 0 6px;
+      font-size:20px;
+      font-weight:600;
+    }
+
+    .tag{
+      font-size:14px;
+      color: var(--muted);
+    }
+
+    .cta{
+      margin-top:14px;
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:10px 14px;
+      border-radius: var(--radius-pill);
+      border:1px solid rgba(214,194,143,0.55);
+      background: rgba(214,194,143,0.12);
+      font-size:13.5px;
+      font-weight:600;
+    }
+
     footer{
       margin-top:28px;
       text-align:center;
@@ -243,16 +263,14 @@
         grid-template-columns:1fr;
         text-align:center;
       }
-      .headline{
-        margin:0 auto;
-      }
+      .headline{ margin:0 auto; }
     }
   </style>
 </head>
 
 <body>
 
-<!-- FLOATING CHATBOT -->
+<!-- CHATBOT -->
 <div class="chatbot-float">
   <div class="chatbot-label">Chat with my AI version</div>
   <a href="chatbot.html" class="chatbot-btn" aria-label="Chatbot">
@@ -274,19 +292,17 @@
       <a class="pill" href="mailto:danishk.mba@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
       <a class="pill" href="https://www.linkedin.com/in/danishkhan08" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
       <a class="pill" href="Danish_Khan_CV.pdf" target="_blank"><i class="fa-solid fa-file-arrow-down"></i> CV</a>
-      <a class="pill gold" href="https://calendar.app.google/cdebSUyVTSf2VrTY9" target="_blank" rel="noopener">
+      <a class="pill gold" href="https://calendar.app.google/cdebSUyVTSf2VrTY9" target="_blank">
         <i class="fa-regular fa-calendar"></i> Book a call
       </a>
     </div>
   </div>
 
-  <!-- REST OF YOUR PAGE CONTINUES UNCHANGED -->
-
-  <footer>
-    Designed for clarity.
-  </footer>
-
-</div>
-
-</body>
-</html>
+  <section class="hero">
+    <div class="heroText">
+      <h1>Danish Khan</h1>
+      <p class="headline">
+        MBA graduate and operations leader blending industrial discipline with startup execution.
+      </p>
+      <div class="mini">
+        Choose your path below to explore my
