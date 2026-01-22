@@ -3,64 +3,319 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Danish Khan | Personal</title>
+  <title>Personal | Danish Khan</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
+    :root{
+      /* Shared shell (luxury green) */
+      --bg-0:#071a14;
+      --bg-1:#0b2a20;
+      --bg-2:#0f3a2c;
+
+      --panel: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
+
+      --gold:#d6c28f;
+      --text:#f4f6f5;
+      --muted: rgba(244,246,245,0.78);
+      --muted-2: rgba(244,246,245,0.62);
+
+      --shadow: 0 22px 60px rgba(0,0,0,0.45);
+      --radius-xl:22px;
+      --radius-lg:16px;
+      --radius-pill:999px;
+
+      /* Beyond-work vibrant palette */
+      --v-bg-1:#1b1d3a;   /* indigo */
+      --v-bg-2:#2b1b3a;   /* violet */
+      --v-bg-3:#3a1b2e;   /* wine */
+      --v-accent:#ff8f3d; /* warm orange */
+      --v-accent-2:#5eead4; /* teal */
+    }
+
+    *{ box-sizing:border-box; }
+
     body{
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 28px 18px;
-      line-height: 1.6;
-      color:#222;
+      margin:0;
+      min-height:100vh;
+      font-family: Inter, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% 15%, rgba(214,194,143,0.10), transparent 55%),
+        linear-gradient(135deg, var(--bg-0), var(--bg-1) 45%, var(--bg-2));
+      display:flex;
+      justify-content:center;
+      padding: 28px 16px;
     }
-    header{
-      display:flex; gap:22px; align-items:center; flex-wrap:wrap;
-      border-bottom: 1px solid #eee; padding-bottom:16px;
+
+    .container{ width:100%; max-width:1120px; }
+
+    /* Topbar */
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      padding:12px 14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
     }
-    .avatar{
-      width:140px;height:140px;border-radius:50%;
-      object-fit:cover;border:2px solid #ddd;
+
+    .crumbs{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      color: var(--muted);
+      font-size: 13.5px;
     }
-    h1{ margin:0; }
-    .meta{ color:#555; margin-top:6px; }
-    a{ color:#0066cc; text-decoration:none; }
-    a:hover{ text-decoration:underline; }
-    h2{ margin-top:28px; border-bottom:1px solid #eee; padding-bottom:6px; }
-    ul{ padding-left:18px; }
-    .back{ display:inline-block; margin-top:16px; }
-    .note{ color:#666; }
+
+    .pillrow{ display:flex; gap:10px; flex-wrap:wrap; }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 12px;
+      border-radius: var(--radius-pill);
+      border:1px solid var(--border);
+      background: rgba(0,0,0,0.14);
+      color: var(--text);
+      text-decoration:none;
+      font-size:13.5px;
+      transition: all 0.15s ease;
+      white-space:nowrap;
+    }
+    .pill:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.07); }
+
+    /* Intro */
+    .intro{
+      margin-top:20px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    h1{
+      margin:0 0 8px;
+      font-size:24px;
+      font-weight:600;
+    }
+
+    .lead{
+      color: var(--muted);
+      max-width:700px;
+      line-height:1.6;
+      font-size:14.4px;
+    }
+
+    /* Beyond Work Section */
+    .beyond{
+      margin-top:28px;
+      border-radius: var(--radius-xl);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      background:
+        radial-gradient(800px 600px at 20% 20%, rgba(255,143,61,0.18), transparent 55%),
+        radial-gradient(900px 700px at 80% 30%, rgba(94,234,212,0.22), transparent 60%),
+        linear-gradient(135deg, var(--v-bg-1), var(--v-bg-2) 45%, var(--v-bg-3));
+    }
+
+    .beyondHeader{
+      padding: 22px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .beyondHeader h2{
+      margin:0;
+      font-size:22px;
+      font-weight:600;
+      letter-spacing:0.3px;
+    }
+
+    .beyondHeader p{
+      margin-top:8px;
+      color: rgba(244,246,245,0.85);
+      max-width:720px;
+      line-height:1.6;
+      font-size:14.4px;
+    }
+
+    .beyondGrid{
+      padding:22px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+      gap:18px;
+    }
+
+    .bCard{
+      position:relative;
+      border-radius:18px;
+      padding:18px;
+      background: rgba(0,0,0,0.28);
+      border:1px solid rgba(255,255,255,0.18);
+      transition: transform 0.25s ease, background 0.25s ease;
+      cursor:pointer;
+      overflow:hidden;
+    }
+
+    .bCard::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.08), transparent 60%);
+      opacity:0;
+      transition: opacity 0.25s ease;
+      pointer-events:none;
+    }
+
+    .bCard:hover{
+      transform: translateY(-6px) scale(1.01);
+      background: rgba(0,0,0,0.38);
+    }
+    .bCard:hover::after{ opacity:1; }
+
+    .bIcon{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+      margin-bottom:10px;
+    }
+
+    .photo{ background: rgba(255,143,61,0.25); color: var(--v-accent); }
+    .learn{ background: rgba(94,234,212,0.25); color: var(--v-accent-2); }
+    .vol{ background: rgba(214,194,143,0.25); color: var(--gold); }
+
+    .bCard h3{
+      margin:0 0 6px;
+      font-size:16px;
+      font-weight:600;
+    }
+
+    .bCard p{
+      margin:0;
+      color: rgba(244,246,245,0.82);
+      font-size:13.8px;
+      line-height:1.55;
+    }
+
+    .reveal{
+      margin-top:10px;
+      max-height:0;
+      overflow:hidden;
+      color: rgba(244,246,245,0.75);
+      font-size:13.4px;
+      line-height:1.5;
+      transition: max-height 0.3s ease;
+    }
+
+    .bCard.active .reveal{
+      max-height:120px;
+    }
+
+    footer{
+      margin-top:28px;
+      text-align:center;
+      font-size:12.8px;
+      color: var(--muted-2);
+    }
   </style>
 </head>
+
 <body>
+<div class="container">
 
-  <a class="back" href="index.html">← Back to arrival</a>
-
-  <header>
-    <img class="avatar" src="profile.jpg" alt="Danish Khan"/>
-    <div>
-      <h1>Personal</h1>
-      <div class="meta">The part of life that doesn’t fit into bullet points.</div>
+  <div class="topbar">
+    <div class="crumbs">
+      <span><i class="fa-solid fa-user"></i> Personal</span>
+      <span>·</span>
+      <span>Beyond work</span>
     </div>
-  </header>
+    <div class="pillrow">
+      <a class="pill" href="index.html"><i class="fa-solid fa-arrow-left"></i> Home</a>
+      <a class="pill" href="professional.html"><i class="fa-solid fa-briefcase"></i> Professional</a>
+      <a class="pill" href="chatbot.html"><i class="fa-solid fa-robot"></i> Chatbot</a>
+    </div>
+  </div>
 
-  <h2>What I’m into</h2>
-  <ul>
-    <li><strong>Photography:</strong> learning composition, light, and storytelling (especially street and travel).</li>
-    <li><strong>Community:</strong> volunteering and local impact work.</li>
-    <li><strong>Learning:</strong> German language journey (currently B1, pushing toward B2).</li>
-  </ul>
+  <section class="intro">
+    <h1>Beyond work</h1>
+    <p class="lead">
+      This is where structure relaxes. What I explore outside work feeds how I think, learn,
+      and show up professionally.
+    </p>
+  </section>
 
-  <h2>Volunteering</h2>
-  <p>
-    I’m involved with <strong>infinity e.V.</strong> in Mannheim through a social impact project,
-    focused on community engagement and sustainable development.
-    <span class="note">(Yes, it’s real work, not just a “feel good” line.)</span>
-  </p>
+  <section class="beyond">
+    <div class="beyondHeader">
+      <h2>What keeps me curious</h2>
+      <p>
+        Click a card to explore. This space is intentionally lighter, more expressive,
+        and more human.
+      </p>
+    </div>
 
-  <h2>Contact</h2>
-  <p>
-    If you want to connect: <a href="mailto:mkhan3@mbs.education">mkhan3@mbs.education</a>
-  </p>
+    <div class="beyondGrid">
+      <div class="bCard">
+        <div class="bIcon photo"><i class="fa-solid fa-camera"></i></div>
+        <h3>Photography</h3>
+        <p>Street, light, and composition.</p>
+        <div class="reveal">
+          I use photography to slow down and notice patterns — light, balance, and moments.
+          It sharpens how I observe systems and people.
+        </div>
+      </div>
+
+      <div class="bCard">
+        <div class="bIcon learn"><i class="fa-solid fa-brain"></i></div>
+        <h3>Learning & reflection</h3>
+        <p>Thinking in systems, not silos.</p>
+        <div class="reveal">
+          I enjoy structured thinking, journaling, and breaking complex ideas into
+          practical frameworks I can actually use.
+        </div>
+      </div>
+
+      <div class="bCard">
+        <div class="bIcon vol"><i class="fa-solid fa-hands-helping"></i></div>
+        <h3>Community & volunteering</h3>
+        <p>Staying grounded beyond metrics.</p>
+        <div class="reveal">
+          Giving time and energy reminds me that progress isn’t only measured in KPIs.
+          It’s also about impact and presence.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Balance matters. This page exists to show that.
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll(".bCard").forEach(card=>{
+    card.addEventListener("click",()=>{
+      card.classList.toggle("active");
+    });
+  });
+</script>
 
 </body>
 </html>
