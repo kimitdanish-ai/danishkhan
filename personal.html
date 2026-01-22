@@ -121,112 +121,108 @@
     }
 
     /* Beyond Work Section */
-    .beyond{
-      margin-top:28px;
-      border-radius: var(--radius-xl);
-      overflow:hidden;
-      box-shadow: var(--shadow);
-      background:
-        radial-gradient(800px 600px at 20% 20%, rgba(255,143,61,0.18), transparent 55%),
-        radial-gradient(900px 700px at 80% 30%, rgba(94,234,212,0.22), transparent 60%),
-        linear-gradient(135deg, var(--v-bg-1), var(--v-bg-2) 45%, var(--v-bg-3));
-    }
+    /* ---- Beyond Work (Light + Vibrant) ---- */
 
-    .beyondHeader{
-      padding: 22px;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
-    }
+.beyond{
+  margin-top:28px;
+  border-radius: var(--radius-xl);
+  overflow:hidden;
+  background:
+    radial-gradient(600px 400px at 20% 20%, rgba(255,143,61,0.18), transparent 55%),
+    radial-gradient(600px 400px at 80% 30%, rgba(94,234,212,0.22), transparent 60%),
+    linear-gradient(180deg, #ffffff, #f7faf9);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
 
-    .beyondHeader h2{
-      margin:0;
-      font-size:22px;
-      font-weight:600;
-      letter-spacing:0.3px;
-    }
+.beyondHeader{
+  padding: 26px 24px 18px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
 
-    .beyondHeader p{
-      margin-top:8px;
-      color: rgba(244,246,245,0.85);
-      max-width:720px;
-      line-height:1.6;
-      font-size:14.4px;
-    }
+.beyondHeader h2{
+  margin:0;
+  font-size:22px;
+  font-weight:600;
+  color:#0f172a; /* deep slate */
+}
 
-    .beyondGrid{
-      padding:22px;
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-      gap:18px;
-    }
+.beyondHeader p{
+  margin-top:8px;
+  max-width:720px;
+  line-height:1.6;
+  font-size:14.6px;
+  color:#475569;
+}
 
-    .bCard{
-      position:relative;
-      border-radius:18px;
-      padding:18px;
-      background: rgba(0,0,0,0.28);
-      border:1px solid rgba(255,255,255,0.18);
-      transition: transform 0.25s ease, background 0.25s ease;
-      cursor:pointer;
-      overflow:hidden;
-    }
+/* Grid */
+.beyondGrid{
+  padding:24px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap:18px;
+}
 
-    .bCard::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.08), transparent 60%);
-      opacity:0;
-      transition: opacity 0.25s ease;
-      pointer-events:none;
-    }
+/* Cards */
+.bCard{
+  background:#ffffff;
+  border-radius:18px;
+  padding:20px;
+  border:1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor:pointer;
+}
 
-    .bCard:hover{
-      transform: translateY(-6px) scale(1.01);
-      background: rgba(0,0,0,0.38);
-    }
-    .bCard:hover::after{ opacity:1; }
+.bCard:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.14);
+}
 
-    .bIcon{
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:20px;
-      margin-bottom:10px;
-    }
+.bIcon{
+  width:46px;
+  height:46px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  margin-bottom:12px;
+}
 
-    .photo{ background: rgba(255,143,61,0.25); color: var(--v-accent); }
-    .learn{ background: rgba(94,234,212,0.25); color: var(--v-accent-2); }
-    .vol{ background: rgba(214,194,143,0.25); color: var(--gold); }
+/* Accent colors */
+.photo{ background:#fff3e8; color:#ff8f3d; }
+.learn{ background:#e6fbf7; color:#14b8a6; }
+.vol{ background:#faf6ea; color:#d6c28f; }
 
-    .bCard h3{
-      margin:0 0 6px;
-      font-size:16px;
-      font-weight:600;
-    }
+.bCard h3{
+  margin:0 0 6px;
+  font-size:16.5px;
+  font-weight:600;
+  color:#0f172a;
+}
 
-    .bCard p{
-      margin:0;
-      color: rgba(244,246,245,0.82);
-      font-size:13.8px;
-      line-height:1.55;
-    }
+.bCard p{
+  margin:0;
+  font-size:14px;
+  line-height:1.55;
+  color:#475569;
+}
 
-    .reveal{
-      margin-top:10px;
-      max-height:0;
-      overflow:hidden;
-      color: rgba(244,246,245,0.75);
-      font-size:13.4px;
-      line-height:1.5;
-      transition: max-height 0.3s ease;
-    }
+/* Reveal text */
+.reveal{
+  margin-top:10px;
+  max-height:0;
+  overflow:hidden;
+  color:#475569;
+  font-size:13.8px;
+  line-height:1.55;
+  transition: max-height 0.25s ease;
+}
 
-    .bCard.active .reveal{
-      max-height:120px;
-    }
+.bCard.active .reveal{
+  max-height:120px;
+}
+
 
     footer{
       margin-top:28px;
