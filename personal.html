@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Personal | Danish Khan</title>
 
-  <!-- Premium system + modern font -->
+  <!-- Premium font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -115,21 +115,10 @@
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .tile::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      border-radius:inherit;
-      opacity:0;
-      transition:opacity 0.25s ease;
-    }
-
     .tile:hover{
       transform:translateY(-6px);
       box-shadow:var(--shadow-strong);
     }
-
-    .tile:hover::before{ opacity:1; }
 
     .tile h3{
       margin:0 0 10px;
@@ -153,50 +142,52 @@
       transition:max-height 0.3s ease;
     }
 
-    .reveal p{
-      font-size:14.8px;
-      color:var(--muted);
-    }
-
     .tile.active .reveal{
       max-height:160px;
     }
 
-    /* Accent surfaces */
-    .blue{
-      box-shadow: inset 0 0 0 1px rgba(29,78,216,0.12);
+    .blue{ box-shadow: inset 0 0 0 1px rgba(29,78,216,0.12); }
+    .teal{ box-shadow: inset 0 0 0 1px rgba(15,118,110,0.12); }
+    .orange{ box-shadow: inset 0 0 0 1px rgba(194,65,12,0.14); }
+
+    /* Life in Germany */
+    .life{
+      margin-top:96px;
+      padding:56px;
+      border-radius:var(--radius-xl);
+      background:linear-gradient(180deg,#ffffff,#f9fafb);
+      border:1px solid var(--border);
+      box-shadow:var(--shadow-strong);
     }
 
-    .teal{
-      box-shadow: inset 0 0 0 1px rgba(15,118,110,0.12);
+    .life h2{
+      font-size:30px;
+      font-weight:700;
+      margin:0 0 18px;
     }
 
-    .orange{
-      box-shadow: inset 0 0 0 1px rgba(194,65,12,0.14);
+    .life p{
+      font-size:17px;
+      line-height:1.65;
+      color:var(--muted);
+      max-width:760px;
+      margin:0 0 20px;
     }
 
-    /* Life in Germany – hero tile */
-    <a href="life-in-germany.html" class="life-link">
-  <section class="life">
-    <h2>Life in Germany</h2>
-    <p>
-      I’m building long-term roots in Germany through language,
-      routine, and everyday participation. Integration is not
-      symbolic — it’s practiced daily.
-    </p>
-    <p>
-      My German language journey focuses on confidence and clarity
-      in professional and everyday contexts, supported by structured
-      learning and real conversations.
-    </p>
-    <span>Language · Integration · Long-term commitment</span>
-  </section>
-</a>
-.life-link{
-  text-decoration:none;
-  color:inherit;
-  display:block;
-}
+    .life span{
+      font-size:14px;
+      font-weight:500;
+      color:var(--blue);
+      letter-spacing:0.02em;
+    }
+
+    /* Make life tile clickable */
+    .life-link{
+      text-decoration:none;
+      color:inherit;
+      display:block;
+    }
+
     footer{
       margin-top:90px;
       text-align:center;
@@ -212,91 +203,80 @@
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
 
-    <div class="topbar">
-      <div class="crumb">Personal</div>
-      <div class="nav">
-        <a href="index.html">Home</a>
-        <a href="professional.html">Professional</a>
-        <a href="chatbot.html">Chatbot</a>
+  <div class="topbar">
+    <div class="crumb">Personal</div>
+    <div class="nav">
+      <a href="index.html">Home</a>
+      <a href="professional.html">Professional</a>
+      <a href="chatbot.html">Chatbot</a>
+    </div>
+  </div>
+
+  <section class="intro">
+    <h1>Everyday life</h1>
+    <p>
+      A few constants that shape how I observe, think, and live —
+      outside formal work.
+    </p>
+  </section>
+
+  <section class="tiles">
+    <div class="tile blue">
+      <h3>Photography</h3>
+      <p>Street scenes, light, ordinary moments.</p>
+      <div class="reveal">
+        Photography trains attention and pattern recognition.
       </div>
     </div>
 
-    <section class="intro">
-      <h1>Everyday life</h1>
-      <p>
-        A few constants that shape how I observe, think, and live —
-        outside formal work.
-      </p>
-    </section>
-
-    <!-- Bold interest tiles -->
-    <section class="tiles">
-
-      <div class="tile blue">
-        <h3>Photography</h3>
-        <p>Street scenes, light, ordinary moments.</p>
-        <div class="reveal">
-          <p>
-            Photography trains attention. It’s about structure, rhythm,
-            and learning to notice what usually goes unseen.
-          </p>
-        </div>
+    <div class="tile teal">
+      <h3>Walking & hiking</h3>
+      <p>Forests, trails, long walks.</p>
+      <div class="reveal">
+        Walking slows thinking and creates clarity.
       </div>
+    </div>
 
-      <div class="tile teal">
-        <h3>Walking & hiking</h3>
-        <p>Forests, trails, long walks.</p>
-        <div class="reveal">
-          <p>
-            Walking is where thinking slows down. Germany’s landscapes
-            offer space for clarity and reflection.
-          </p>
-        </div>
+    <div class="tile orange">
+      <h3>Cafés & quiet focus</h3>
+      <p>Reading, writing, observation.</p>
+      <div class="reveal">
+        Calm environments that support routine and depth.
       </div>
+    </div>
+  </section>
 
-      <div class="tile orange">
-        <h3>Cafés & quiet focus</h3>
-        <p>Reading, writing, observation.</p>
-        <div class="reveal">
-          <p>
-            Cafés provide rhythm. A consistent environment for focus,
-            routine, and calm productivity.
-          </p>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- Life in Germany -->
+  <!-- Clickable Life in Germany -->
+  <a href="life-in-germany.html" class="life-link">
     <section class="life">
       <h2>Life in Germany</h2>
       <p>
         I’m building long-term roots in Germany through language,
-        routine, and everyday participation. Integration is not
-        symbolic — it’s practiced daily.
+        routine, and everyday participation.
       </p>
       <p>
         My German language journey focuses on confidence and clarity
-        in professional and everyday contexts, supported by structured
-        learning and real conversations.
+        in professional and daily settings.
       </p>
       <span>Language · Integration · Long-term commitment</span>
     </section>
+  </a>
 
-    <footer>
-      Designed to feel deliberate. Nothing extra.
-    </footer>
+  <footer>
+    Designed to feel deliberate. Nothing extra.
+  </footer>
 
-  </div>
+</div>
 
-  <script>
-    document.querySelectorAll(".tile").forEach(tile=>{
-      tile.addEventListener("click",()=>{
-        tile.classList.toggle("active");
-      });
+<script>
+  document.querySelectorAll(".tile").forEach(tile=>{
+    tile.addEventListener("click",()=>{
+      tile.classList.toggle("active");
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
