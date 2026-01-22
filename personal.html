@@ -12,20 +12,20 @@
 
   <style>
     :root{
-      --panel:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
       --border: rgba(15,23,42,0.08);
-
-      --text:#0f172a;     /* deep slate */
-      --muted:#475569;    /* slate */
-      --muted-2:#64748b;  /* lighter slate */
 
       --accent-orange:#ff8f3d;
       --accent-teal:#14b8a6;
+      --accent-blue:#60a5fa;
+      --accent-olive:#84a98c;
       --accent-gold:#d6c28f;
 
-      --shadow: 0 18px 40px rgba(15,23,42,0.12);
-      --shadow-soft: 0 10px 26px rgba(15,23,42,0.10);
+      --bg:#f8fafc;
+      --card:#ffffff;
 
+      --shadow: 0 14px 30px rgba(15,23,42,0.12);
       --radius-xl:22px;
       --radius-lg:16px;
       --radius-pill:999px;
@@ -39,9 +39,9 @@
       font-family: Inter, Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(700px 500px at 15% 20%, rgba(255,143,61,0.16), transparent 55%),
-        radial-gradient(700px 500px at 85% 25%, rgba(94,234,212,0.20), transparent 55%),
-        linear-gradient(180deg, #ffffff, #f8fafc);
+        radial-gradient(700px 500px at 15% 20%, rgba(255,143,61,0.14), transparent 55%),
+        radial-gradient(700px 500px at 85% 25%, rgba(94,234,212,0.18), transparent 55%),
+        linear-gradient(180deg, #ffffff, var(--bg));
       display:flex;
       justify-content:center;
       padding: 28px 16px;
@@ -58,7 +58,7 @@
       flex-wrap:wrap;
       padding:12px 14px;
       border:1px solid var(--border);
-      background: var(--panel);
+      background:#ffffff;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow);
     }
@@ -85,7 +85,6 @@
       color: var(--text);
       text-decoration:none;
       font-size:13.5px;
-      white-space:nowrap;
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
     .pill:hover{
@@ -93,96 +92,43 @@
       box-shadow: 0 8px 18px rgba(15,23,42,0.12);
     }
 
-    .pill.accent{
-      border-color: rgba(255,143,61,0.25);
-      background: rgba(255,143,61,0.10);
-    }
-
-    /* Intro */
+    /* Intro (quiet, no headline) */
     .intro{
-      margin-top:20px;
-      border:1px solid var(--border);
-      background: var(--panel);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-      padding: 22px;
-    }
-
-    h1{
-      margin:0 0 8px;
-      font-size:26px;
-      font-weight:600;
-      letter-spacing: 0.2px;
-    }
-
-    .lead{
-      color: var(--muted);
+      margin-top:22px;
       max-width:760px;
+      color: var(--muted);
+      font-size:15px;
       line-height:1.65;
-      font-size:14.8px;
-      margin:0;
     }
 
-    /* Beyond Work (Light + Vibrant, Minimal) */
-    .beyond{
+    /* Tiles */
+    .tiles{
       margin-top:28px;
-      border-radius: var(--radius-xl);
-      overflow:hidden;
-      background:
-        radial-gradient(600px 400px at 20% 20%, rgba(255,143,61,0.18), transparent 55%),
-        radial-gradient(600px 400px at 80% 30%, rgba(94,234,212,0.22), transparent 55%),
-        linear-gradient(180deg, #ffffff, #f8fafc);
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(15,23,42,0.06);
-    }
-
-    .beyondHeader{
-      padding:26px 24px 18px;
-      border-bottom:1px solid rgba(15,23,42,0.06);
-    }
-
-    .beyondHeader h2{
-      margin:0;
-      font-size:20px;
-      font-weight:600;
-      color: var(--text);
-    }
-
-    .beyondHeader p{
-      margin-top:8px;
-      max-width:760px;
-      line-height:1.6;
-      font-size:14.6px;
-      color: var(--muted);
-    }
-
-    .beyondGrid{
-      padding:24px;
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-      gap:18px;
+      gap:20px;
     }
 
-    .bCard{
-      background:#ffffff;
+    .tile{
+      background: var(--card);
       border-radius:18px;
-      padding:20px;
-      border:1px solid rgba(15,23,42,0.06);
-      box-shadow: var(--shadow-soft);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      padding:22px;
+      border:1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
       cursor:pointer;
-      user-select:none;
-      position: relative;
+      position:relative;
+      overflow:hidden;
     }
 
-    .bCard:hover{
+    .tile:hover{
       transform: translateY(-6px);
-      box-shadow: 0 18px 40px rgba(15,23,42,0.16);
+      box-shadow: 0 20px 44px rgba(15,23,42,0.18);
     }
 
-    .bIcon{
-      width:46px;
-      height:46px;
+    .icon{
+      width:48px;
+      height:48px;
       border-radius:14px;
       display:flex;
       align-items:center;
@@ -192,21 +138,22 @@
     }
 
     .photo{ background:#fff3e8; color:var(--accent-orange); }
+    .hike{ background:#edf7f2; color:var(--accent-olive); }
+    .city{ background:#eef2ff; color:var(--accent-blue); }
     .learn{ background:#e6fbf7; color:var(--accent-teal); }
-    .vol{ background:#faf6ea; color:var(--accent-gold); }
+    .coffee{ background:#faf6ea; color:var(--accent-gold); }
 
-    .bCard h3{
+    .tile h3{
       margin:0 0 6px;
       font-size:16.5px;
       font-weight:600;
-      color: var(--text);
     }
 
-    .bCard p{
+    .tile p{
       margin:0;
-      font-size:14px;
-      line-height:1.55;
       color: var(--muted);
+      font-size:14.2px;
+      line-height:1.55;
     }
 
     .reveal{
@@ -219,55 +166,19 @@
       transition: max-height 0.25s ease;
     }
 
-    .bCard.active .reveal{
+    .tile.active .reveal{
       max-height:140px;
     }
 
-    /* Quick links row (optional but useful) */
-    .quick{
-      margin-top: 18px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      padding: 0 2px;
-    }
-
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 12px;
-      border-radius: var(--radius-pill);
-      border:1px solid rgba(15,23,42,0.08);
-      background:#ffffff;
-      color: var(--text);
-      font-size:13.2px;
-      cursor:pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      user-select:none;
-      text-decoration:none;
-    }
-    .chip:hover{
-      transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(15,23,42,0.12);
-    }
-    .chip.orange{ border-color: rgba(255,143,61,0.22); background: rgba(255,143,61,0.10); }
-    .chip.teal{ border-color: rgba(20,184,166,0.22); background: rgba(20,184,166,0.10); }
-    .chip.gold{ border-color: rgba(214,194,143,0.30); background: rgba(214,194,143,0.12); }
-
     footer{
-      margin-top:28px;
+      margin-top:32px;
       text-align:center;
       font-size:12.8px;
-      color: var(--muted-2);
-      line-height: 1.5;
+      color:#64748b;
     }
 
-    @media (max-width: 520px){
-      h1{ font-size:24px; }
-      .intro{ padding: 18px; }
-      .beyondHeader{ padding: 20px 18px 14px; }
-      .beyondGrid{ padding: 18px; }
+    @media (max-width:520px){
+      .intro{ font-size:14.5px; }
     }
   </style>
 </head>
@@ -279,83 +190,85 @@
     <div class="crumbs">
       <span><i class="fa-solid fa-user"></i> Personal</span>
       <span>·</span>
-      <span>Beyond work</span>
+      <span>Life in Germany</span>
     </div>
 
     <div class="pillrow">
       <a class="pill" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
       <a class="pill" href="professional.html"><i class="fa-solid fa-briefcase"></i> Professional</a>
       <a class="pill" href="chatbot.html"><i class="fa-solid fa-robot"></i> Chatbot</a>
-      <a class="pill accent" href="mailto:danishk.mba@gmail.com?subject=Hello%20Danish"><i class="fa-solid fa-envelope"></i> Email</a>
     </div>
   </div>
 
-  <section class="intro">
-    <h1>Beyond work</h1>
-    <p class="lead">
-      This page is intentionally lighter. Outside of work, curiosity and craft keep me sharp.
-      Click a card to expand it.
-    </p>
+  <div class="intro">
+    Outside work, I build a rhythm around curiosity, movement, and everyday life in Germany.
+    Click a tile to expand.
+  </div>
 
-    <div class="quick">
-      <a class="chip orange" href="#photography"><i class="fa-solid fa-camera"></i> Photography</a>
-      <a class="chip teal" href="#learning"><i class="fa-solid fa-brain"></i> Learning</a>
-      <a class="chip gold" href="#community"><i class="fa-solid fa-hands-helping"></i> Community</a>
-    </div>
-  </section>
+  <section class="tiles">
 
-  <section class="beyond">
-    <div class="beyondHeader">
-      <h2>What keeps me curious</h2>
-      <p>
-        Minimal, but not boring. A few things that shape how I observe, learn, and stay grounded.
-      </p>
-    </div>
-
-    <div class="beyondGrid">
-      <div class="bCard" id="photography">
-        <div class="bIcon photo"><i class="fa-solid fa-camera"></i></div>
-        <h3>Photography</h3>
-        <p>Street, light, and composition.</p>
-        <div class="reveal">
-          Photography forces attention: framing, timing, and what to leave out. It’s a small practice
-          that improves how I notice patterns in systems and people.
-        </div>
-      </div>
-
-      <div class="bCard" id="learning">
-        <div class="bIcon learn"><i class="fa-solid fa-brain"></i></div>
-        <h3>Learning & reflection</h3>
-        <p>Turning complexity into usable frameworks.</p>
-        <div class="reveal">
-          I like simplifying messy problems into practical models. Reading, journaling, and structured
-          reflection help me convert “interesting” into “actionable.”
-        </div>
-      </div>
-
-      <div class="bCard" id="community">
-        <div class="bIcon vol"><i class="fa-solid fa-hands-helping"></i></div>
-        <h3>Community & volunteering</h3>
-        <p>Staying grounded beyond metrics.</p>
-        <div class="reveal">
-          Community work keeps perspective sharp. It’s a reminder that impact is more than performance
-          dashboards, and that consistency matters in real life too.
-        </div>
+    <div class="tile">
+      <div class="icon photo"><i class="fa-solid fa-camera"></i></div>
+      <h3>Photography</h3>
+      <p>Street, light, everyday moments.</p>
+      <div class="reveal">
+        I document cities, people, and quiet transitions. Photography helps me observe
+        patterns and atmosphere rather than rush through them.
       </div>
     </div>
+
+    <div class="tile">
+      <div class="icon hike"><i class="fa-solid fa-person-hiking"></i></div>
+      <h3>Hiking & walking</h3>
+      <p>Forests, trails, long walks.</p>
+      <div class="reveal">
+        Germany’s trails and green spaces are where I reset. Walking helps me think clearly
+        and step away from constant optimisation.
+      </div>
+    </div>
+
+    <div class="tile">
+      <div class="icon city"><i class="fa-solid fa-city"></i></div>
+      <h3>City life</h3>
+      <p>Mannheim and nearby towns.</p>
+      <div class="reveal">
+        I enjoy exploring neighbourhoods, public spaces, and how cities are designed
+        for everyday life, not just efficiency.
+      </div>
+    </div>
+
+    <div class="tile">
+      <div class="icon coffee"><i class="fa-solid fa-mug-hot"></i></div>
+      <h3>Cafés & slow mornings</h3>
+      <p>Good coffee, quiet focus.</p>
+      <div class="reveal">
+        Cafés are my preferred third place. Reading, reflecting, and observing people
+        helps balance structured work with calm presence.
+      </div>
+    </div>
+
+    <div class="tile">
+      <div class="icon learn"><i class="fa-solid fa-brain"></i></div>
+      <h3>Learning & reflection</h3>
+      <p>Thinking in systems.</p>
+      <div class="reveal">
+        I spend time breaking complex ideas into simple mental models through reading,
+        journaling, and structured reflection.
+      </div>
+    </div>
+
   </section>
 
   <footer>
-    Quote: Clean, warm, and human.
+    This page is intentionally quiet. It’s about continuity, not performance.
   </footer>
 
 </div>
 
 <script>
-  // Click-to-reveal interaction
-  document.querySelectorAll(".bCard").forEach(card=>{
-    card.addEventListener("click",()=>{
-      card.classList.toggle("active");
+  document.querySelectorAll(".tile").forEach(tile=>{
+    tile.addEventListener("click",()=>{
+      tile.classList.toggle("active");
     });
   });
 </script>
