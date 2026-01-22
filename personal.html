@@ -5,320 +5,284 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Personal | Danish Khan</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
+  <!-- Apple-like system font stack -->
   <style>
     :root{
-      --text:#0f172a;
-      --muted:#475569;
-      --muted-2:#64748b;
-      --border: rgba(15,23,42,0.08);
-
-      --accent-orange:#ff8f3d;
-      --accent-teal:#14b8a6;
-      --accent-blue:#60a5fa;
-      --accent-olive:#84a98c;
-      --accent-gold:#d6c28f;
-      --accent-purple:#a78bfa;
-
-      --bg:#f8fafc;
+      --text:#111111;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --bg:#ffffff;
       --card:#ffffff;
 
-      --shadow: 0 14px 30px rgba(15,23,42,0.12);
-      --shadow-soft: 0 10px 24px rgba(15,23,42,0.10);
+      --radius:18px;
+      --radius-sm:12px;
 
-      --radius-xl:22px;
-      --radius-lg:16px;
-      --radius-pill:999px;
+      --shadow-soft: 0 8px 24px rgba(0,0,0,0.06);
     }
 
     *{ box-sizing:border-box; }
 
     body{
       margin:0;
-      min-height:100vh;
-      font-family: Inter, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                   "Helvetica Neue", Helvetica, Arial, sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(700px 500px at 15% 20%, rgba(255,143,61,0.14), transparent 55%),
-        radial-gradient(700px 500px at 85% 25%, rgba(94,234,212,0.18), transparent 55%),
-        linear-gradient(180deg, #ffffff, var(--bg));
-      display:flex;
-      justify-content:center;
-      padding: 28px 16px;
+      background: var(--bg);
     }
 
-    .container{ width:100%; max-width:1120px; }
+    .container{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px 64px;
+    }
 
-    /* Topbar */
+    /* Top navigation */
     .topbar{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-      padding:12px 14px;
-      border:1px solid var(--border);
-      background:#ffffff;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
     }
 
     .crumbs{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
+      font-size:14px;
       color: var(--muted);
-      font-size: 13.5px;
     }
 
-    .pillrow{ display:flex; gap:10px; flex-wrap:wrap; }
+    .nav{
+      display:flex;
+      gap:20px;
+      font-size:14px;
+    }
 
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:9px 12px;
-      border-radius: var(--radius-pill);
-      border:1px solid var(--border);
-      background:#ffffff;
+    .nav a{
       color: var(--text);
       text-decoration:none;
-      font-size:13.5px;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      opacity:0.85;
     }
-    .pill:hover{
-      transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(15,23,42,0.12);
+
+    .nav a:hover{
+      opacity:1;
     }
 
     /* Intro */
     .intro{
-      margin-top:22px;
-      max-width:760px;
-      color: var(--muted);
-      font-size:15px;
-      line-height:1.65;
+      margin-top: 56px;
+      max-width: 720px;
     }
 
-    /* Generic section */
+    .intro h1{
+      font-size:32px;
+      font-weight:500;
+      letter-spacing:-0.01em;
+      margin:0 0 16px;
+    }
+
+    .intro p{
+      font-size:17px;
+      line-height:1.6;
+      color: var(--muted);
+      margin:0;
+    }
+
+    /* Section */
     .section{
-      margin-top:40px;
+      margin-top: 72px;
     }
 
     .section h2{
-      margin:0 0 12px;
-      font-size:20px;
-      font-weight:600;
-      letter-spacing:0.2px;
-    }
-
-    .section p.lead{
-      margin:0 0 20px;
-      max-width:760px;
-      font-size:14.8px;
-      line-height:1.65;
-      color: var(--muted);
+      font-size:22px;
+      font-weight:500;
+      letter-spacing:-0.01em;
+      margin:0 0 24px;
     }
 
     /* Tiles */
-    .tiles{
+    .grid{
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-      gap:20px;
+      gap:24px;
     }
 
     .tile{
-      background: var(--card);
-      border-radius:18px;
-      padding:22px;
+      padding:24px;
+      border-radius: var(--radius);
       border:1px solid var(--border);
-      box-shadow: var(--shadow);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      background: var(--card);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       cursor:pointer;
-      position:relative;
-      overflow:hidden;
     }
 
     .tile:hover{
-      transform: translateY(-6px);
-      box-shadow: 0 20px 44px rgba(15,23,42,0.18);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
     }
-
-    .icon{
-      width:48px;
-      height:48px;
-      border-radius:14px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:20px;
-      margin-bottom:12px;
-    }
-
-    .photo{ background:#fff3e8; color:var(--accent-orange); }
-    .hike{ background:#edf7f2; color:var(--accent-olive); }
-    .city{ background:#eef2ff; color:var(--accent-blue); }
-    .coffee{ background:#faf6ea; color:var(--accent-gold); }
-    .learn{ background:#e6fbf7; color:var(--accent-teal); }
-    .lang{ background:#f3e8ff; color:var(--accent-purple); }
 
     .tile h3{
-      margin:0 0 6px;
-      font-size:16.5px;
-      font-weight:600;
+      font-size:18px;
+      font-weight:500;
+      margin:0 0 8px;
     }
 
     .tile p{
-      margin:0;
-      color: var(--muted);
-      font-size:14.2px;
+      font-size:15px;
       line-height:1.55;
+      color: var(--muted);
+      margin:0;
     }
 
     .reveal{
-      margin-top:10px;
+      margin-top:14px;
       max-height:0;
       overflow:hidden;
-      color: var(--muted);
-      font-size:13.8px;
-      line-height:1.55;
       transition: max-height 0.25s ease;
+    }
+
+    .reveal p{
+      font-size:14.5px;
+      color: var(--muted);
     }
 
     .tile.active .reveal{
       max-height:160px;
     }
 
+    /* Divider */
+    .divider{
+      margin-top: 80px;
+      border-top: 1px solid var(--border);
+    }
+
     footer{
-      margin-top:40px;
+      margin-top: 64px;
+      font-size:13px;
+      color: var(--muted);
       text-align:center;
-      font-size:12.8px;
-      color:#64748b;
+    }
+
+    @media (max-width: 600px){
+      .intro h1{ font-size:26px; }
+      .section h2{ font-size:20px; }
     }
   </style>
 </head>
 
 <body>
-<div class="container">
+  <div class="container">
 
-  <div class="topbar">
-    <div class="crumbs">
-      <span><i class="fa-solid fa-user"></i> Personal</span>
-      <span>·</span>
-      <span>Life & integration</span>
+    <div class="topbar">
+      <div class="crumbs">Personal</div>
+      <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="professional.html">Professional</a>
+        <a href="chatbot.html">Chatbot</a>
+      </div>
     </div>
 
-    <div class="pillrow">
-      <a class="pill" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-      <a class="pill" href="professional.html"><i class="fa-solid fa-briefcase"></i> Professional</a>
-      <a class="pill" href="chatbot.html"><i class="fa-solid fa-robot"></i> Chatbot</a>
-    </div>
+    <section class="intro">
+      <h1>Life in Germany</h1>
+      <p>
+        This page reflects how I live day to day in Germany — quietly,
+        intentionally, and with a long-term mindset.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Everyday rhythm</h2>
+      <div class="grid">
+
+        <div class="tile">
+          <h3>Photography</h3>
+          <p>Street scenes, light, and ordinary moments.</p>
+          <div class="reveal">
+            <p>
+              Photography helps me slow down and notice structure in everyday life.
+              It’s less about aesthetics and more about observation.
+            </p>
+          </div>
+        </div>
+
+        <div class="tile">
+          <h3>Walking & hiking</h3>
+          <p>Forests, trails, long walks.</p>
+          <div class="reveal">
+            <p>
+              Walking is where thinking settles. Germany’s trails and green spaces
+              provide room to reflect without distraction.
+            </p>
+          </div>
+        </div>
+
+        <div class="tile">
+          <h3>Cafés & quiet focus</h3>
+          <p>Reading, writing, and observation.</p>
+          <div class="reveal">
+            <p>
+              Cafés are my preferred third place — not for noise,
+              but for calm focus and routine.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section">
+      <h2>Language & integration</h2>
+      <div class="grid">
+
+        <div class="tile">
+          <h3>German language journey</h3>
+          <p>Consistent, practical learning.</p>
+          <div class="reveal">
+            <p>
+              I actively work on German through structured learning,
+              daily exposure, and real conversations.
+              The goal is clarity and confidence, not perfection.
+            </p>
+          </div>
+        </div>
+
+        <div class="tile">
+          <h3>Understanding local systems</h3>
+          <p>Culture through structure.</p>
+          <div class="reveal">
+            <p>
+              Living in Germany has deepened my appreciation for reliability,
+              process, and thoughtful design in public systems.
+            </p>
+          </div>
+        </div>
+
+        <div class="tile">
+          <h3>Participation over observation</h3>
+          <p>Integration as a practice.</p>
+          <div class="reveal">
+            <p>
+              Integration happens through participation — language classes,
+              routines, and showing up consistently.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      Designed to be quiet. Life usually is.
+    </footer>
+
   </div>
 
-  <div class="intro">
-    This page shows how I live, learn, and integrate in Germany — not as a visitor,
-    but as someone building long-term roots.
-  </div>
-
-  <!-- LIFE TILES -->
-  <section class="section">
-    <div class="tiles">
-
-      <div class="tile">
-        <div class="icon photo"><i class="fa-solid fa-camera"></i></div>
-        <h3>Photography</h3>
-        <p>Street, light, everyday moments.</p>
-        <div class="reveal">
-          I document cities, people, and transitions. Photography helps me observe atmosphere
-          rather than rush through it.
-        </div>
-      </div>
-
-      <div class="tile">
-        <div class="icon hike"><i class="fa-solid fa-person-hiking"></i></div>
-        <h3>Hiking & walking</h3>
-        <p>Forests, trails, long walks.</p>
-        <div class="reveal">
-          Germany’s trails and green spaces are where I reset and think clearly,
-          away from constant optimisation.
-        </div>
-      </div>
-
-      <div class="tile">
-        <div class="icon coffee"><i class="fa-solid fa-mug-hot"></i></div>
-        <h3>Cafés & slow mornings</h3>
-        <p>Quiet focus, everyday rhythm.</p>
-        <div class="reveal">
-          Cafés are my third place for reading, reflection, and observing how
-          people structure daily life.
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- LIFE IN GERMANY -->
-  <section class="section">
-    <h2>Life in Germany</h2>
-    <p class="lead">
-      Integration for me is practical and intentional. Language, routine, and
-      showing up consistently matter more than checklists.
-    </p>
-
-    <div class="tiles">
-
-      <div class="tile">
-        <div class="icon lang"><i class="fa-solid fa-language"></i></div>
-        <h3>German language journey</h3>
-        <p>From survival to structured learning.</p>
-        <div class="reveal">
-          I actively work on improving my German through daily exposure, formal learning,
-          and real conversations. The goal is not perfection, but clarity and confidence
-          in professional and everyday settings.
-        </div>
-      </div>
-
-      <div class="tile">
-        <div class="icon city"><i class="fa-solid fa-city"></i></div>
-        <h3>Understanding local culture</h3>
-        <p>How systems shape everyday life.</p>
-        <div class="reveal">
-          Living in Germany has deepened my appreciation for structure, reliability,
-          and thoughtful design in public systems — values I align with professionally.
-        </div>
-      </div>
-
-      <div class="tile">
-        <div class="icon learn"><i class="fa-solid fa-brain"></i></div>
-        <h3>Learning through participation</h3>
-        <p>Not observing from the outside.</p>
-        <div class="reveal">
-          From language classes to local routines, I focus on participation rather
-          than passive adaptation. Integration is a skill you practice.
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <footer>
-    Calm, intentional, and lived-in. That’s the point.
-  </footer>
-
-</div>
-
-<script>
-  document.querySelectorAll(".tile").forEach(tile=>{
-    tile.addEventListener("click",()=>{
-      tile.classList.toggle("active");
+  <script>
+    document.querySelectorAll(".tile").forEach(tile=>{
+      tile.addEventListener("click",()=>{
+        tile.classList.toggle("active");
+      });
     });
-  });
-</script>
-
+  </script>
 </body>
 </html>
