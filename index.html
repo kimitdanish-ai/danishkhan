@@ -51,42 +51,6 @@
       max-width:1120px;
     }
 
-    /* === CHATBOT ENTRY (NEW, ONLY ADDITION) === */
-    .chatbot-entry{
-      position: fixed;
-      top: 18px;
-      right: 22px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border-radius: var(--radius-pill);
-      border:1px solid rgba(214,194,143,0.55);
-      background: rgba(214,194,143,0.12);
-      color: var(--text);
-      text-decoration:none;
-      font-size:13.5px;
-      font-weight:600;
-      box-shadow: var(--shadow);
-      z-index: 999;
-      transition: all 0.15s ease;
-      backdrop-filter: blur(10px);
-    }
-
-    .chatbot-entry:hover{
-      transform: translateY(-1px);
-      border-color: rgba(214,194,143,0.75);
-      background: rgba(214,194,143,0.18);
-    }
-
-    .chatbot-entry .dot{
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      background:#22c55e;
-    }
-    /* === END CHATBOT ADDITION === */
-
     /* Top bar */
     .topbar{
       display:flex;
@@ -149,7 +113,9 @@
       align-items:center;
     }
 
-    .heroText{ padding: 10px; }
+    .heroText{
+      padding: 10px;
+    }
 
     h1{
       font-size:38px;
@@ -170,7 +136,7 @@
       color: var(--muted-2);
     }
 
-    /* PHOTO */
+    /* PHOTO FRAME */
     .photoWrap{
       position:relative;
       display:flex;
@@ -193,6 +159,14 @@
       height:100%;
       object-fit: cover;
       display:block;
+    }
+
+    .photoFrame::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(circle at center, transparent 55%, rgba(0,0,0,0.55));
+      pointer-events:none;
     }
 
     /* CARDS */
@@ -251,6 +225,32 @@
       color: var(--muted-2);
     }
 
+    /* CHATBOT ICON (ONLY ADDITION) */
+    .chatbot-float{
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(214,194,143,0.18);
+      border: 1px solid rgba(214,194,143,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 22px;
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease, background 0.15s ease;
+      z-index: 999;
+    }
+
+    .chatbot-float:hover{
+      transform: translateY(-3px);
+      background: rgba(214,194,143,0.28);
+    }
+
     @media(max-width:860px){
       .hero{
         grid-template-columns:1fr;
@@ -264,12 +264,6 @@
 </head>
 
 <body>
-
-<!-- NEW: high-visibility chatbot entry -->
-<a href="chatbot.html" class="chatbot-entry">
-  <span class="dot"></span>
-  <span>Chat with me</span>
-</a>
 
 <div class="container">
 
@@ -296,10 +290,11 @@
       <h1>Danish Khan</h1>
       <p class="headline">
         MBA graduate and operations leader blending <strong>industrial discipline</strong> with
-        <strong>startup execution</strong>.
+        <strong>startup execution</strong>. I build scalable operations and supply chain systems,
+        improve reliability, and deliver measurable performance gains.
       </p>
       <div class="mini">
-        Choose your path below to explore my work or ask questions via the assistant.
+        Choose your path below to explore my work, background, or ask questions via the assistant.
       </div>
     </div>
 
@@ -335,6 +330,11 @@
   </footer>
 
 </div>
+
+<!-- FLOATING CHATBOT ICON -->
+<a href="chatbot.html" class="chatbot-float" aria-label="Chat with me">
+  <i class="fa-solid fa-comments"></i>
+</a>
 
 </body>
 </html>
