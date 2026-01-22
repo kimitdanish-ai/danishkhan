@@ -144,20 +144,22 @@
     }
 
     .photoFrame{
-      width:100%;
-      max-width:420px;
-      border-radius: var(--radius-xl);
-      overflow:hidden;
-      border:1px solid rgba(214,194,143,0.35);
-      box-shadow: var(--shadow);
-      background:#000;
-    }
+  width:100%;
+  max-width:320px;        /* controls width */
+  max-height:440px;       /* controls height */
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid rgba(214,194,143,0.35);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.45);
+  background:#000;
+}
 
-    .photoFrame img{
-      width:100%;
-      height:auto;
-      display:block;
-    }
+.photoFrame img{
+  width:100%;
+  height:100%;
+  object-fit: cover;      /* smart crop, no stretch */
+  display:block;
+}
 
     .photoFrame::after{
       content:"";
