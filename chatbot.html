@@ -3,100 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Danish Khan</title>
+  <title>Chatbot | Danish Khan</title>
 
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-  <!-- Optional premium font (clean + luxury) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Luxury green palette */
-      --bg-0: #071a14;     /* near-black green */
-      --bg-1: #0b2a20;     /* deep forest */
-      --bg-2: #0f3a2c;     /* emerald depth */
+      --bg-0:#071a14;
+      --bg-1:#0b2a20;
+      --bg-2:#0f3a2c;
       --panel: rgba(255,255,255,0.06);
       --panel-2: rgba(255,255,255,0.085);
       --border: rgba(255,255,255,0.12);
       --border-2: rgba(255,255,255,0.18);
-
-      /* Champagne gold accent (not loud) */
-      --gold: #d6c28f;
-      --gold-2: #cbb57d;
-
-      --text: #f4f6f5;
+      --gold:#d6c28f;
+      --text:#f4f6f5;
       --muted: rgba(244,246,245,0.78);
       --muted-2: rgba(244,246,245,0.62);
-
       --shadow: 0 22px 60px rgba(0,0,0,0.45);
-      --shadow-soft: 0 12px 30px rgba(0,0,0,0.30);
-
-      --radius-xl: 22px;
-      --radius-lg: 16px;
-      --radius-pill: 999px;
+      --radius-xl:22px;
+      --radius-lg:16px;
+      --radius-pill:999px;
     }
 
-    *{ box-sizing: border-box; }
-
+    *{ box-sizing:border-box; }
     body{
       margin:0;
       min-height:100vh;
       font-family: Inter, Arial, sans-serif;
       color: var(--text);
-
-      /* Luxury background: layered gradients + vignette */
       background:
         radial-gradient(1200px 800px at 20% 15%, rgba(214,194,143,0.10), transparent 55%),
         radial-gradient(900px 650px at 85% 25%, rgba(16,92,66,0.35), transparent 60%),
         radial-gradient(900px 650px at 40% 95%, rgba(9,40,30,0.65), transparent 55%),
         linear-gradient(135deg, var(--bg-0), var(--bg-1) 45%, var(--bg-2));
-
       display:flex;
-      align-items:center;
       justify-content:center;
       padding: 28px 16px;
     }
 
     .container{
       width:100%;
-      max-width: 1120px;
+      max-width: 980px;
     }
 
-    /* Top contact strip */
     .topbar{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      gap:12px;
       flex-wrap:wrap;
-
+      gap:12px;
       padding: 12px 14px;
-      border: 1px solid var(--border);
+      border:1px solid var(--border);
       background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.045));
       border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
     }
 
-    .topbar .left{
+    .crumbs{
       display:flex;
-      align-items:center;
       gap:10px;
       flex-wrap:wrap;
+      align-items:center;
       color: var(--muted);
       font-size: 13.5px;
-      letter-spacing: 0.1px;
-    }
-
-    .pillrow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
     }
 
     .pill{
@@ -110,288 +85,389 @@
       color: var(--text);
       text-decoration:none;
       font-size: 13.5px;
-      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
       white-space: nowrap;
+      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
     }
-
     .pill:hover{
       transform: translateY(-1px);
       border-color: var(--border-2);
       background: rgba(255,255,255,0.07);
     }
-
     .pill.gold{
       border-color: rgba(214,194,143,0.55);
       background: rgba(214,194,143,0.10);
-      color: var(--text);
     }
-
     .pill.gold:hover{
       background: rgba(214,194,143,0.16);
       border-color: rgba(214,194,143,0.75);
     }
 
-    /* Hero */
-    .hero{
-      text-align:center;
-      margin-top: 26px;
-      padding: 8px 10px 0;
-    }
-
-    .avatar{
-      width: 118px;
-      height: 118px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid rgba(214,194,143,0.65);
-      box-shadow: 0 14px 40px rgba(0,0,0,0.40);
-    }
-
-    h1{
-      margin: 14px 0 6px;
-      font-size: 36px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-    }
-
-    .headline{
-      margin: 0 auto;
-      max-width: 880px;
-      color: var(--muted);
-      font-size: 15.8px;
-      line-height: 1.62;
-    }
-
-    .headline strong{
-      color: rgba(244,246,245,0.92);
-      font-weight: 600;
-    }
-
-    .mini{
-      margin-top: 12px;
-      color: var(--muted-2);
-      font-size: 13.5px;
-    }
-
-    /* Doors (cards) */
-    .cards{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
-      margin-top: 26px;
-    }
-
-    .card{
-      text-decoration:none;
-      color: var(--text);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border);
+    .panel{
+      margin-top: 18px;
+      border:1px solid var(--border);
       background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
+      border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
+      overflow:hidden;
       backdrop-filter: blur(12px);
-
-      padding: 26px 22px;
-      min-height: 250px;
-
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      justify-content:space-between;
-
-      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
-      position: relative;
-      overflow: hidden;
     }
 
-    /* subtle gold sheen line */
-    .card::before{
-      content:"";
-      position:absolute;
-      top:-60px;
-      right:-140px;
-      width: 260px;
-      height: 260px;
-      background: radial-gradient(circle at 30% 30%, rgba(214,194,143,0.18), transparent 60%);
-      transform: rotate(12deg);
-      pointer-events:none;
+    .header{
+      padding: 18px 18px 14px;
+      border-bottom: 1px solid var(--border);
     }
-
-    .card:hover{
-      transform: translateY(-6px);
-      border-color: rgba(214,194,143,0.35);
-      background: linear-gradient(180deg, rgba(255,255,255,0.095), rgba(255,255,255,0.040));
-    }
-
-    .cardTop{
-      display:flex;
-      gap: 14px;
-      align-items:flex-start;
-    }
-
-    .icon{
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
-      border: 1px solid rgba(214,194,143,0.35);
-      background: rgba(0,0,0,0.16);
-      display:flex;
-      align-items:center;
-      justify-content:center;
+    h1{
+      margin:0;
       font-size: 20px;
-      color: var(--gold);
-      box-shadow: inset 0 0 18px rgba(0,0,0,0.25);
-    }
-
-    .card h2{
-      margin: 0;
-      font-size: 20px;
-      font-weight: 600;
       letter-spacing: 0.2px;
+      font-weight: 600;
     }
-
-    .tag{
-      margin-top: 7px;
+    .subtitle{
+      margin-top:6px;
       color: var(--muted);
       font-size: 13.8px;
-      line-height: 1.45;
-      max-width: 420px;
+      line-height: 1.5;
     }
 
-    .cta{
+    .suggestions{
+      margin-top: 12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .chip{
+      cursor:pointer;
+      user-select:none;
       display:inline-flex;
       align-items:center;
-      gap:10px;
-      padding: 10px 14px;
+      gap:8px;
+      padding: 10px 12px;
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(214,194,143,0.55);
-      background: rgba(214,194,143,0.12);
+      border: 1px solid rgba(214,194,143,0.45);
+      background: rgba(214,194,143,0.10);
       color: rgba(244,246,245,0.95);
-      font-weight: 600;
-      font-size: 13.5px;
-      transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
-      margin-top: 16px;
+      font-size: 13.2px;
+      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+      white-space:nowrap;
     }
-
-    .cta:hover{
+    .chip:hover{
       transform: translateY(-1px);
       background: rgba(214,194,143,0.16);
       border-color: rgba(214,194,143,0.75);
     }
 
-    footer{
-      margin-top: 20px;
-      text-align:center;
+    .chat{
+      height: 54vh;
+      min-height: 420px;
+      max-height: 620px;
+      padding: 18px;
+      overflow:auto;
+    }
+
+    .msg{
+      display:flex;
+      margin: 10px 0;
+      gap: 10px;
+      align-items:flex-start;
+    }
+    .bubble{
+      max-width: 760px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.14);
+      color: rgba(244,246,245,0.95);
+      line-height: 1.5;
+      font-size: 14.2px;
+      white-space: pre-wrap;
+    }
+
+    .me{ justify-content:flex-end; }
+    .me .bubble{
+      border-color: rgba(214,194,143,0.55);
+      background: rgba(214,194,143,0.10);
+    }
+
+    .botBadge, .meBadge{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      color: var(--gold);
+      flex: 0 0 auto;
+    }
+    .meBadge{
+      color: rgba(244,246,245,0.92);
+      border-color: rgba(214,194,143,0.55);
+      background: rgba(214,194,143,0.12);
+    }
+
+    .composer{
+      display:flex;
+      gap: 10px;
+      padding: 14px;
+      border-top: 1px solid var(--border);
+      background: rgba(0,0,0,0.10);
+    }
+
+    input{
+      flex:1;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.16);
+      color: var(--text);
+      outline:none;
+      font-size: 14px;
+    }
+    input::placeholder{ color: rgba(244,246,245,0.55); }
+
+    button{
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(214,194,143,0.55);
+      background: rgba(214,194,143,0.12);
+      color: rgba(244,246,245,0.95);
+      font-weight: 600;
+      cursor:pointer;
+      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+      white-space:nowrap;
+    }
+    button:hover{
+      transform: translateY(-1px);
+      background: rgba(214,194,143,0.16);
+      border-color: rgba(214,194,143,0.75);
+    }
+
+    .fineprint{
+      padding: 0 18px 18px;
       color: var(--muted-2);
       font-size: 12.8px;
       line-height: 1.5;
     }
 
-    /* Mobile adjustments */
+    a{ color: var(--gold); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
     @media (max-width: 520px){
-      h1{ font-size: 30px; }
-      .card{ min-height: 230px; }
-      .topbar{ justify-content:center; }
+      .chat{ height: 58vh; }
+      .bubble{ font-size: 14px; }
     }
   </style>
 </head>
 <body>
-
   <div class="container">
 
-    <!-- Contact strip -->
     <div class="topbar">
-      <div class="left">
-        <span><i class="fa-solid fa-location-dot"></i> Mannheim, Germany</span>
+      <div class="crumbs">
+        <span><i class="fa-solid fa-robot"></i> Chatbot</span>
         <span>·</span>
-        <span>Available immediately</span>
-        <span>·</span>
-        <span>Willing to relocate</span>
+        <span>Ask about experience, projects, and fit</span>
       </div>
-
-      <div class="pillrow">
-        <a class="pill" href="mailto:mkhan3@mbs.education">
-          <i class="fa-solid fa-envelope"></i> Email
-        </a>
-
-        <a class="pill" href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank">
-          <i class="fa-brands fa-linkedin"></i> LinkedIn
-        </a>
-
-        <!-- IMPORTANT: make sure filename matches your repo exactly -->
-        <a class="pill" href="Danish_Khan_CV.pdf" target="_blank">
-          <i class="fa-solid fa-file-arrow-down"></i> CV
-        </a>
-
-        <a class="pill gold" href="YOUR_CALENDLY_LINK" target="_blank">
-          <i class="fa-regular fa-calendar"></i> Book appointment
-        </a>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="pill" href="index.html"><i class="fa-solid fa-arrow-left"></i> Home</a>
+        <a class="pill" href="professional.html"><i class="fa-solid fa-briefcase"></i> Professional</a>
+        <a class="pill" href="personal.html"><i class="fa-solid fa-camera-retro"></i> Personal</a>
+        <a class="pill gold" href="mailto:mkhan3@mbs.education"><i class="fa-solid fa-envelope"></i> Email</a>
       </div>
     </div>
 
-    <!-- Hero -->
-    <div class="hero">
-      <img class="avatar" src="profile.jpg" alt="Danish Khan" />
-      <h1>Danish Khan</h1>
+    <div class="panel">
+      <div class="header">
+        <h1>Danish’s Assistant</h1>
+        <div class="subtitle">
+          A lightweight on-site assistant (rule-based). Ask a question or tap a suggestion.
+        </div>
+        <div class="suggestions">
+          <div class="chip" data-q="Summarize your experience"><i class="fa-solid fa-user"></i> Summary</div>
+          <div class="chip" data-q="What roles are you targeting?"><i class="fa-solid fa-bullseye"></i> Target roles</div>
+          <div class="chip" data-q="Tell me about Platform X"><i class="fa-solid fa-diagram-project"></i> Platform X</div>
+          <div class="chip" data-q="Give me your strongest metrics"><i class="fa-solid fa-chart-line"></i> Metrics</div>
+          <div class="chip" data-q="How can I contact you?"><i class="fa-solid fa-paper-plane"></i> Contact</div>
+        </div>
+      </div>
 
-      <p class="headline">
-        MBA graduate and operations leader blending <strong>industrial discipline</strong> with <strong>startup execution</strong>.
-        I build scalable supply chain and operations systems, improve reliability, and deliver measurable cost and performance gains.
-      </p>
+      <div id="chat" class="chat" aria-live="polite"></div>
 
-      <div class="mini">
-        Choose your view: professional profile, personal side, or an interactive chatbot.
+      <div class="composer">
+        <input id="input" type="text" placeholder="Ask: ‘What’s your background?’ or ‘What roles fit you?’" />
+        <button id="send"><i class="fa-solid fa-paper-plane"></i> Send</button>
+      </div>
+
+      <div class="fineprint">
+        This chatbot runs entirely in your browser (no tracking, no AI hype). For formal details, use the
+        <a href="professional.html">Professional</a> page or email <a href="mailto:mkhan3@mbs.education">mkhan3@mbs.education</a>.
       </div>
     </div>
-
-    <!-- Doors -->
-    <div class="cards">
-
-      <a class="card" href="professional.html">
-        <div>
-          <div class="cardTop">
-            <div class="icon"><i class="fa-solid fa-briefcase"></i></div>
-            <div>
-              <h2>Professional</h2>
-              <div class="tag">CV · Experience · Projects · Skills · Impact highlights</div>
-            </div>
-          </div>
-          <div class="cta">Enter <i class="fa-solid fa-arrow-right"></i></div>
-        </div>
-      </a>
-
-      <a class="card" href="personal.html">
-        <div>
-          <div class="cardTop">
-            <div class="icon"><i class="fa-solid fa-camera-retro"></i></div>
-            <div>
-              <h2>Personal</h2>
-              <div class="tag">Photography · Volunteering · Learning · Community</div>
-            </div>
-          </div>
-          <div class="cta">Enter <i class="fa-solid fa-arrow-right"></i></div>
-        </div>
-      </a>
-
-      <a class="card" href="chatbot.html">
-        <div>
-          <div class="cardTop">
-            <div class="icon"><i class="fa-solid fa-robot"></i></div>
-            <div>
-              <h2>Chatbot</h2>
-              <div class="tag">Ask about my work, projects, strengths, and how I approach problems</div>
-            </div>
-          </div>
-          <div class="cta">Talk <i class="fa-solid fa-arrow-right"></i></div>
-        </div>
-      </a>
-
-    </div>
-
-    <footer>
-      Clean, fast, and intentional. No ads. No noise. Just signal.
-    </footer>
 
   </div>
 
+  <script>
+    // --- Simple, functional, rule-based chatbot ---
+    // You can extend the knowledge base below without touching the logic.
+
+    const KB = {
+      summary: {
+        patterns: ["summary","background","about you","who are you","introduce","profile","tell me about yourself"],
+        reply:
+`Quick summary:
+• MBA graduate (Mannheim Business School) with experience across manufacturing and an AgTech startup.
+• Strong in operations + supply chain execution, process improvement, and data-driven decision making.
+• Comfortable bridging structured industrial environments with fast-moving scaling challenges.
+
+Want a 30-second version or role-specific version (Ops / Supply Chain / Biz Improvement)?`
+      },
+
+      roles: {
+        patterns: ["target roles","roles","position","job","looking for","seeking","what role","fit","suitable"],
+        reply:
+`Target roles (examples):
+• Operations Manager / Operations Excellence
+• Supply Chain Manager / Planning / S&OP
+• Business Improvement / Continuous Improvement (Lean)
+• Program / Project Manager (cross-functional delivery)
+
+If you tell me the industry (industrial, logistics, automotive, tech, etc.) I can tailor the pitch.`
+      },
+
+      platformx: {
+        patterns: ["platform x","thesis","dach","persona","onboarding","growth strategy","vnr"],
+        reply:
+`Platform X (MBA project):
+• Built personas from internal + external interviews.
+• Created prioritization logic and onboarding/GTM framework for DACH market.
+• Focus: research-backed decisions, stakeholder alignment, clear execution roadmap.
+
+If you want, I can link you to a short case-study page once it’s added.`
+      },
+
+      metrics: {
+        patterns: ["metrics","numbers","impact","results","outcomes","achievements","kpi"],
+        reply:
+`Selected impact signals (high-level):
+• Cost reduction, availability improvements, and operational scaling initiatives.
+• Program delivery under constraints (compliance, launch readiness, cross-functional execution).
+
+For exact metrics and context, the Professional page is the source of truth:
+→ professional.html`
+      },
+
+      contact: {
+        patterns: ["contact","email","reach","appointment","meeting","call","linkedin"],
+        reply:
+`Contact:
+• Email: mkhan3@mbs.education
+• LinkedIn: update link on homepage if needed
+• Booking: use the “Book appointment” button on the Home page
+
+If you’re a recruiter/hiring manager, email is fastest.`
+      },
+
+      navigation: {
+        patterns: ["professional page","personal page","cv","resume","portfolio","projects","home"],
+        reply:
+`Navigation:
+• Home: index.html
+• Professional: professional.html
+• Personal: personal.html
+• CV: use the CV button on the Home page (PDF)
+
+Tell me what you want to see and I’ll point you to the right section.`
+      },
+
+      fallback: {
+        reply:
+`I can help with:
+• Summary / background
+• Target roles and fit
+• Platform X (MBA project)
+• Key achievements (high-level)
+• Contact details
+
+Try: “Summarize your experience” or “What roles are you targeting?”`
+      }
+    };
+
+    const chat = document.getElementById("chat");
+    const input = document.getElementById("input");
+    const sendBtn = document.getElementById("send");
+
+    function addMessage(text, who="bot"){
+      const row = document.createElement("div");
+      row.className = "msg" + (who === "me" ? " me" : "");
+      const badge = document.createElement("div");
+      badge.className = who === "me" ? "meBadge" : "botBadge";
+      badge.innerHTML = who === "me" ? '<i class="fa-solid fa-user"></i>' : '<i class="fa-solid fa-robot"></i>';
+
+      const bubble = document.createElement("div");
+      bubble.className = "bubble";
+      bubble.textContent = text;
+
+      if (who === "me"){
+        row.appendChild(bubble);
+        row.appendChild(badge);
+      } else {
+        row.appendChild(badge);
+        row.appendChild(bubble);
+      }
+
+      chat.appendChild(row);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    function normalize(s){
+      return (s || "").toLowerCase().replace(/\s+/g, " ").trim();
+    }
+
+    function matchReply(userText){
+      const t = normalize(userText);
+
+      for (const key of Object.keys(KB)){
+        if (key === "fallback") continue;
+        const item = KB[key];
+        if (!item.patterns) continue;
+        if (item.patterns.some(p => t.includes(p))){
+          return item.reply;
+        }
+      }
+      return KB.fallback.reply;
+    }
+
+    function handleSend(text){
+      const t = (text || "").trim();
+      if (!t) return;
+
+      addMessage(t, "me");
+
+      // slight delay to feel natural (and not like a vending machine)
+      setTimeout(() => {
+        addMessage(matchReply(t), "bot");
+      }, 250);
+
+      input.value = "";
+      input.focus();
+    }
+
+    // Init greeting
+    addMessage(
+`Hi. I’m Danish’s on-site assistant.
+Ask me about his background, target roles, Platform X, or contact details.
+(Yes, I’m simple. That’s the point.)`
+    );
+
+    sendBtn.addEventListener("click", () => handleSend(input.value));
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") handleSend(input.value);
+    });
+
+    // Suggestion chips
+    document.querySelectorAll(".chip").forEach(chip => {
+      chip.addEventListener("click", () => handleSend(chip.dataset.q || chip.textContent));
+    });
+  </script>
 </body>
 </html>
