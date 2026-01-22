@@ -12,30 +12,23 @@
 
   <style>
     :root{
-      /* Shared shell (luxury green) */
-      --bg-0:#071a14;
-      --bg-1:#0b2a20;
-      --bg-2:#0f3a2c;
+      --panel:#ffffff;
+      --border: rgba(15,23,42,0.08);
 
-      --panel: rgba(255,255,255,0.06);
-      --border: rgba(255,255,255,0.12);
+      --text:#0f172a;     /* deep slate */
+      --muted:#475569;    /* slate */
+      --muted-2:#64748b;  /* lighter slate */
 
-      --gold:#d6c28f;
-      --text:#f4f6f5;
-      --muted: rgba(244,246,245,0.78);
-      --muted-2: rgba(244,246,245,0.62);
+      --accent-orange:#ff8f3d;
+      --accent-teal:#14b8a6;
+      --accent-gold:#d6c28f;
 
-      --shadow: 0 22px 60px rgba(0,0,0,0.45);
+      --shadow: 0 18px 40px rgba(15,23,42,0.12);
+      --shadow-soft: 0 10px 26px rgba(15,23,42,0.10);
+
       --radius-xl:22px;
       --radius-lg:16px;
       --radius-pill:999px;
-
-      /* Beyond-work vibrant palette */
-      --v-bg-1:#1b1d3a;   /* indigo */
-      --v-bg-2:#2b1b3a;   /* violet */
-      --v-bg-3:#3a1b2e;   /* wine */
-      --v-accent:#ff8f3d; /* warm orange */
-      --v-accent-2:#5eead4; /* teal */
     }
 
     *{ box-sizing:border-box; }
@@ -46,8 +39,9 @@
       font-family: Inter, Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(1200px 800px at 20% 15%, rgba(214,194,143,0.10), transparent 55%),
-        linear-gradient(135deg, var(--bg-0), var(--bg-1) 45%, var(--bg-2));
+        radial-gradient(700px 500px at 15% 20%, rgba(255,143,61,0.16), transparent 55%),
+        radial-gradient(700px 500px at 85% 25%, rgba(94,234,212,0.20), transparent 55%),
+        linear-gradient(180deg, #ffffff, #f8fafc);
       display:flex;
       justify-content:center;
       padding: 28px 16px;
@@ -64,10 +58,9 @@
       flex-wrap:wrap;
       padding:12px 14px;
       border:1px solid var(--border);
-      background: rgba(255,255,255,0.06);
+      background: var(--panel);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
     }
 
     .crumbs{
@@ -88,20 +81,28 @@
       padding:9px 12px;
       border-radius: var(--radius-pill);
       border:1px solid var(--border);
-      background: rgba(0,0,0,0.14);
+      background:#ffffff;
       color: var(--text);
       text-decoration:none;
       font-size:13.5px;
-      transition: all 0.15s ease;
       white-space:nowrap;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
-    .pill:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.07); }
+    .pill:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(15,23,42,0.12);
+    }
+
+    .pill.accent{
+      border-color: rgba(255,143,61,0.25);
+      background: rgba(255,143,61,0.10);
+    }
 
     /* Intro */
     .intro{
       margin-top:20px;
       border:1px solid var(--border);
-      background: rgba(255,255,255,0.06);
+      background: var(--panel);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
       padding: 22px;
@@ -109,126 +110,164 @@
 
     h1{
       margin:0 0 8px;
-      font-size:24px;
+      font-size:26px;
       font-weight:600;
+      letter-spacing: 0.2px;
     }
 
     .lead{
       color: var(--muted);
-      max-width:700px;
-      line-height:1.6;
-      font-size:14.4px;
+      max-width:760px;
+      line-height:1.65;
+      font-size:14.8px;
+      margin:0;
     }
 
-    /* Beyond Work Section */
-    /* ---- Beyond Work (Light + Vibrant) ---- */
+    /* Beyond Work (Light + Vibrant, Minimal) */
+    .beyond{
+      margin-top:28px;
+      border-radius: var(--radius-xl);
+      overflow:hidden;
+      background:
+        radial-gradient(600px 400px at 20% 20%, rgba(255,143,61,0.18), transparent 55%),
+        radial-gradient(600px 400px at 80% 30%, rgba(94,234,212,0.22), transparent 55%),
+        linear-gradient(180deg, #ffffff, #f8fafc);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15,23,42,0.06);
+    }
 
-.beyond{
-  margin-top:28px;
-  border-radius: var(--radius-xl);
-  overflow:hidden;
-  background:
-    radial-gradient(600px 400px at 20% 20%, rgba(255,143,61,0.18), transparent 55%),
-    radial-gradient(600px 400px at 80% 30%, rgba(94,234,212,0.22), transparent 60%),
-    linear-gradient(180deg, #ffffff, #f7faf9);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
-}
+    .beyondHeader{
+      padding:26px 24px 18px;
+      border-bottom:1px solid rgba(15,23,42,0.06);
+    }
 
-.beyondHeader{
-  padding: 26px 24px 18px;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-}
+    .beyondHeader h2{
+      margin:0;
+      font-size:20px;
+      font-weight:600;
+      color: var(--text);
+    }
 
-.beyondHeader h2{
-  margin:0;
-  font-size:22px;
-  font-weight:600;
-  color:#0f172a; /* deep slate */
-}
+    .beyondHeader p{
+      margin-top:8px;
+      max-width:760px;
+      line-height:1.6;
+      font-size:14.6px;
+      color: var(--muted);
+    }
 
-.beyondHeader p{
-  margin-top:8px;
-  max-width:720px;
-  line-height:1.6;
-  font-size:14.6px;
-  color:#475569;
-}
+    .beyondGrid{
+      padding:24px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+      gap:18px;
+    }
 
-/* Grid */
-.beyondGrid{
-  padding:24px;
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  gap:18px;
-}
+    .bCard{
+      background:#ffffff;
+      border-radius:18px;
+      padding:20px;
+      border:1px solid rgba(15,23,42,0.06);
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor:pointer;
+      user-select:none;
+      position: relative;
+    }
 
-/* Cards */
-.bCard{
-  background:#ffffff;
-  border-radius:18px;
-  padding:20px;
-  border:1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 10px 26px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor:pointer;
-}
+    .bCard:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(15,23,42,0.16);
+    }
 
-.bCard:hover{
-  transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(0,0,0,0.14);
-}
+    .bIcon{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+      margin-bottom:12px;
+    }
 
-.bIcon{
-  width:46px;
-  height:46px;
-  border-radius:14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-  margin-bottom:12px;
-}
+    .photo{ background:#fff3e8; color:var(--accent-orange); }
+    .learn{ background:#e6fbf7; color:var(--accent-teal); }
+    .vol{ background:#faf6ea; color:var(--accent-gold); }
 
-/* Accent colors */
-.photo{ background:#fff3e8; color:#ff8f3d; }
-.learn{ background:#e6fbf7; color:#14b8a6; }
-.vol{ background:#faf6ea; color:#d6c28f; }
+    .bCard h3{
+      margin:0 0 6px;
+      font-size:16.5px;
+      font-weight:600;
+      color: var(--text);
+    }
 
-.bCard h3{
-  margin:0 0 6px;
-  font-size:16.5px;
-  font-weight:600;
-  color:#0f172a;
-}
+    .bCard p{
+      margin:0;
+      font-size:14px;
+      line-height:1.55;
+      color: var(--muted);
+    }
 
-.bCard p{
-  margin:0;
-  font-size:14px;
-  line-height:1.55;
-  color:#475569;
-}
+    .reveal{
+      margin-top:10px;
+      max-height:0;
+      overflow:hidden;
+      color: var(--muted);
+      font-size:13.8px;
+      line-height:1.55;
+      transition: max-height 0.25s ease;
+    }
 
-/* Reveal text */
-.reveal{
-  margin-top:10px;
-  max-height:0;
-  overflow:hidden;
-  color:#475569;
-  font-size:13.8px;
-  line-height:1.55;
-  transition: max-height 0.25s ease;
-}
+    .bCard.active .reveal{
+      max-height:140px;
+    }
 
-.bCard.active .reveal{
-  max-height:120px;
-}
+    /* Quick links row (optional but useful) */
+    .quick{
+      margin-top: 18px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      padding: 0 2px;
+    }
 
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius: var(--radius-pill);
+      border:1px solid rgba(15,23,42,0.08);
+      background:#ffffff;
+      color: var(--text);
+      font-size:13.2px;
+      cursor:pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      user-select:none;
+      text-decoration:none;
+    }
+    .chip:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(15,23,42,0.12);
+    }
+    .chip.orange{ border-color: rgba(255,143,61,0.22); background: rgba(255,143,61,0.10); }
+    .chip.teal{ border-color: rgba(20,184,166,0.22); background: rgba(20,184,166,0.10); }
+    .chip.gold{ border-color: rgba(214,194,143,0.30); background: rgba(214,194,143,0.12); }
 
     footer{
       margin-top:28px;
       text-align:center;
       font-size:12.8px;
       color: var(--muted-2);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 520px){
+      h1{ font-size:24px; }
+      .intro{ padding: 18px; }
+      .beyondHeader{ padding: 20px 18px 14px; }
+      .beyondGrid{ padding: 18px; }
     }
   </style>
 </head>
@@ -242,70 +281,78 @@
       <span>·</span>
       <span>Beyond work</span>
     </div>
+
     <div class="pillrow">
-      <a class="pill" href="index.html"><i class="fa-solid fa-arrow-left"></i> Home</a>
+      <a class="pill" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
       <a class="pill" href="professional.html"><i class="fa-solid fa-briefcase"></i> Professional</a>
       <a class="pill" href="chatbot.html"><i class="fa-solid fa-robot"></i> Chatbot</a>
+      <a class="pill accent" href="mailto:danishk.mba@gmail.com?subject=Hello%20Danish"><i class="fa-solid fa-envelope"></i> Email</a>
     </div>
   </div>
 
   <section class="intro">
     <h1>Beyond work</h1>
     <p class="lead">
-      This is where structure relaxes. What I explore outside work feeds how I think, learn,
-      and show up professionally.
+      This page is intentionally lighter. Outside of work, curiosity and craft keep me sharp.
+      Click a card to expand it.
     </p>
+
+    <div class="quick">
+      <a class="chip orange" href="#photography"><i class="fa-solid fa-camera"></i> Photography</a>
+      <a class="chip teal" href="#learning"><i class="fa-solid fa-brain"></i> Learning</a>
+      <a class="chip gold" href="#community"><i class="fa-solid fa-hands-helping"></i> Community</a>
+    </div>
   </section>
 
   <section class="beyond">
     <div class="beyondHeader">
       <h2>What keeps me curious</h2>
       <p>
-        Click a card to explore. This space is intentionally lighter, more expressive,
-        and more human.
+        Minimal, but not boring. A few things that shape how I observe, learn, and stay grounded.
       </p>
     </div>
 
     <div class="beyondGrid">
-      <div class="bCard">
+      <div class="bCard" id="photography">
         <div class="bIcon photo"><i class="fa-solid fa-camera"></i></div>
         <h3>Photography</h3>
         <p>Street, light, and composition.</p>
         <div class="reveal">
-          I use photography to slow down and notice patterns — light, balance, and moments.
-          It sharpens how I observe systems and people.
+          Photography forces attention: framing, timing, and what to leave out. It’s a small practice
+          that improves how I notice patterns in systems and people.
         </div>
       </div>
 
-      <div class="bCard">
+      <div class="bCard" id="learning">
         <div class="bIcon learn"><i class="fa-solid fa-brain"></i></div>
         <h3>Learning & reflection</h3>
-        <p>Thinking in systems, not silos.</p>
+        <p>Turning complexity into usable frameworks.</p>
         <div class="reveal">
-          I enjoy structured thinking, journaling, and breaking complex ideas into
-          practical frameworks I can actually use.
+          I like simplifying messy problems into practical models. Reading, journaling, and structured
+          reflection help me convert “interesting” into “actionable.”
         </div>
       </div>
 
-      <div class="bCard">
+      <div class="bCard" id="community">
         <div class="bIcon vol"><i class="fa-solid fa-hands-helping"></i></div>
         <h3>Community & volunteering</h3>
         <p>Staying grounded beyond metrics.</p>
         <div class="reveal">
-          Giving time and energy reminds me that progress isn’t only measured in KPIs.
-          It’s also about impact and presence.
+          Community work keeps perspective sharp. It’s a reminder that impact is more than performance
+          dashboards, and that consistency matters in real life too.
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    Balance matters. This page exists to show that.
+    Clean, warm, and human. No dark green harmed in the making of this page.
   </footer>
 
 </div>
 
 <script>
+  // Click-to-reveal interaction
   document.querySelectorAll(".bCard").forEach(card=>{
     card.addEventListener("click",()=>{
       card.classList.toggle("active");
