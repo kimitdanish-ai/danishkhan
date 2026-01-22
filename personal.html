@@ -5,35 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Personal | Danish Khan</title>
 
-  <!-- Apple-like system font stack -->
+  <!-- Premium system + modern font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --text:#111111;
+      --text:#0b0b0b;
       --muted:#6b7280;
-      --border:#e5e7eb;
+      --border:#e6e7eb;
       --bg:#ffffff;
+
+      --blue:#1d4ed8;
+      --teal:#0f766e;
+      --orange:#c2410c;
+
       --card:#ffffff;
+      --card-soft:#f8fafc;
 
-      --radius:18px;
-      --radius-sm:12px;
+      --radius-xl:26px;
+      --radius-lg:20px;
 
-      --shadow-soft: 0 8px 24px rgba(0,0,0,0.06);
+      --shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
+      --shadow-strong: 0 18px 50px rgba(0,0,0,0.14);
     }
 
     *{ box-sizing:border-box; }
 
     body{
       margin:0;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
-                   "Helvetica Neue", Helvetica, Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
+      font-family:-apple-system,BlinkMacSystemFont,
+                  "Inter","SF Pro Text","Helvetica Neue",
+                  Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
     }
 
     .container{
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 24px 64px;
+      max-width:1100px;
+      margin:0 auto;
+      padding:42px 24px 90px;
     }
 
     /* Top navigation */
@@ -41,129 +53,173 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--border);
+      padding-bottom:26px;
+      border-bottom:1px solid var(--border);
     }
 
-    .crumbs{
+    .crumb{
       font-size:14px;
-      color: var(--muted);
+      color:var(--muted);
+      letter-spacing:0.02em;
     }
 
     .nav{
       display:flex;
-      gap:20px;
+      gap:24px;
       font-size:14px;
     }
 
     .nav a{
-      color: var(--text);
       text-decoration:none;
+      color:var(--text);
       opacity:0.85;
     }
 
-    .nav a:hover{
-      opacity:1;
-    }
+    .nav a:hover{ opacity:1; }
 
     /* Intro */
     .intro{
-      margin-top: 56px;
-      max-width: 720px;
+      margin-top:70px;
+      max-width:720px;
     }
 
     .intro h1{
-      font-size:32px;
-      font-weight:500;
-      letter-spacing:-0.01em;
+      font-size:36px;
+      font-weight:700;
+      letter-spacing:-0.02em;
       margin:0 0 16px;
     }
 
     .intro p{
-      font-size:17px;
+      font-size:18px;
       line-height:1.6;
-      color: var(--muted);
+      color:var(--muted);
       margin:0;
-    }
-
-    /* Section */
-    .section{
-      margin-top: 72px;
-    }
-
-    .section h2{
-      font-size:22px;
-      font-weight:500;
-      letter-spacing:-0.01em;
-      margin:0 0 24px;
     }
 
     /* Tiles */
-    .grid{
+    .tiles{
+      margin-top:72px;
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-      gap:24px;
+      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+      gap:32px;
     }
 
     .tile{
-      padding:24px;
-      border-radius: var(--radius);
+      position:relative;
+      padding:34px 30px;
+      border-radius:var(--radius-xl);
+      background:linear-gradient(180deg, var(--card), var(--card-soft));
       border:1px solid var(--border);
-      background: var(--card);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
       cursor:pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .tile::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:inherit;
+      opacity:0;
+      transition:opacity 0.25s ease;
     }
 
     .tile:hover{
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-soft);
+      transform:translateY(-6px);
+      box-shadow:var(--shadow-strong);
     }
 
+    .tile:hover::before{ opacity:1; }
+
     .tile h3{
-      font-size:18px;
-      font-weight:500;
-      margin:0 0 8px;
+      margin:0 0 10px;
+      font-size:22px;
+      font-weight:600;
+      letter-spacing:-0.015em;
     }
 
     .tile p{
-      font-size:15px;
-      line-height:1.55;
-      color: var(--muted);
       margin:0;
+      font-size:15.5px;
+      line-height:1.6;
+      color:var(--muted);
+      max-width:90%;
     }
 
     .reveal{
-      margin-top:14px;
+      margin-top:18px;
       max-height:0;
       overflow:hidden;
-      transition: max-height 0.25s ease;
+      transition:max-height 0.3s ease;
     }
 
     .reveal p{
-      font-size:14.5px;
-      color: var(--muted);
+      font-size:14.8px;
+      color:var(--muted);
     }
 
     .tile.active .reveal{
       max-height:160px;
     }
 
-    /* Divider */
-    .divider{
-      margin-top: 80px;
-      border-top: 1px solid var(--border);
+    /* Accent surfaces */
+    .blue{
+      box-shadow: inset 0 0 0 1px rgba(29,78,216,0.12);
+    }
+
+    .teal{
+      box-shadow: inset 0 0 0 1px rgba(15,118,110,0.12);
+    }
+
+    .orange{
+      box-shadow: inset 0 0 0 1px rgba(194,65,12,0.14);
+    }
+
+    /* Life in Germany – hero tile */
+    .life{
+      margin-top:96px;
+      padding:56px;
+      border-radius:var(--radius-xl);
+      background:
+        linear-gradient(180deg, #ffffff, #f9fafb);
+      border:1px solid var(--border);
+      box-shadow:var(--shadow-strong);
+    }
+
+    .life h2{
+      font-size:30px;
+      font-weight:700;
+      letter-spacing:-0.02em;
+      margin:0 0 18px;
+    }
+
+    .life p{
+      font-size:17px;
+      line-height:1.65;
+      color:var(--muted);
+      max-width:760px;
+      margin:0 0 20px;
+    }
+
+    .life span{
+      display:inline-block;
+      margin-top:10px;
+      font-size:14px;
+      font-weight:500;
+      letter-spacing:0.02em;
+      color:var(--blue);
     }
 
     footer{
-      margin-top: 64px;
-      font-size:13px;
-      color: var(--muted);
+      margin-top:90px;
       text-align:center;
+      font-size:13px;
+      color:var(--muted);
     }
 
-    @media (max-width: 600px){
-      .intro h1{ font-size:26px; }
-      .section h2{ font-size:20px; }
+    @media (max-width:600px){
+      .intro h1{ font-size:30px; }
+      .life{ padding:36px; }
     }
   </style>
 </head>
@@ -172,7 +228,7 @@
   <div class="container">
 
     <div class="topbar">
-      <div class="crumbs">Personal</div>
+      <div class="crumb">Personal</div>
       <div class="nav">
         <a href="index.html">Home</a>
         <a href="professional.html">Professional</a>
@@ -181,98 +237,69 @@
     </div>
 
     <section class="intro">
-      <h1>Life in Germany</h1>
+      <h1>Everyday life</h1>
       <p>
-        This page reflects how I live day to day in Germany — quietly,
-        intentionally, and with a long-term mindset.
+        A few constants that shape how I observe, think, and live —
+        outside formal work.
       </p>
     </section>
 
-    <section class="section">
-      <h2>Everyday rhythm</h2>
-      <div class="grid">
+    <!-- Bold interest tiles -->
+    <section class="tiles">
 
-        <div class="tile">
-          <h3>Photography</h3>
-          <p>Street scenes, light, and ordinary moments.</p>
-          <div class="reveal">
-            <p>
-              Photography helps me slow down and notice structure in everyday life.
-              It’s less about aesthetics and more about observation.
-            </p>
-          </div>
+      <div class="tile blue">
+        <h3>Photography</h3>
+        <p>Street scenes, light, ordinary moments.</p>
+        <div class="reveal">
+          <p>
+            Photography trains attention. It’s about structure, rhythm,
+            and learning to notice what usually goes unseen.
+          </p>
         </div>
-
-        <div class="tile">
-          <h3>Walking & hiking</h3>
-          <p>Forests, trails, long walks.</p>
-          <div class="reveal">
-            <p>
-              Walking is where thinking settles. Germany’s trails and green spaces
-              provide room to reflect without distraction.
-            </p>
-          </div>
-        </div>
-
-        <div class="tile">
-          <h3>Cafés & quiet focus</h3>
-          <p>Reading, writing, and observation.</p>
-          <div class="reveal">
-            <p>
-              Cafés are my preferred third place — not for noise,
-              but for calm focus and routine.
-            </p>
-          </div>
-        </div>
-
       </div>
+
+      <div class="tile teal">
+        <h3>Walking & hiking</h3>
+        <p>Forests, trails, long walks.</p>
+        <div class="reveal">
+          <p>
+            Walking is where thinking slows down. Germany’s landscapes
+            offer space for clarity and reflection.
+          </p>
+        </div>
+      </div>
+
+      <div class="tile orange">
+        <h3>Cafés & quiet focus</h3>
+        <p>Reading, writing, observation.</p>
+        <div class="reveal">
+          <p>
+            Cafés provide rhythm. A consistent environment for focus,
+            routine, and calm productivity.
+          </p>
+        </div>
+      </div>
+
     </section>
 
-    <div class="divider"></div>
-
-    <section class="section">
-      <h2>Language & integration</h2>
-      <div class="grid">
-
-        <div class="tile">
-          <h3>German language journey</h3>
-          <p>Consistent, practical learning.</p>
-          <div class="reveal">
-            <p>
-              I actively work on German through structured learning,
-              daily exposure, and real conversations.
-              The goal is clarity and confidence, not perfection.
-            </p>
-          </div>
-        </div>
-
-        <div class="tile">
-          <h3>Understanding local systems</h3>
-          <p>Culture through structure.</p>
-          <div class="reveal">
-            <p>
-              Living in Germany has deepened my appreciation for reliability,
-              process, and thoughtful design in public systems.
-            </p>
-          </div>
-        </div>
-
-        <div class="tile">
-          <h3>Participation over observation</h3>
-          <p>Integration as a practice.</p>
-          <div class="reveal">
-            <p>
-              Integration happens through participation — language classes,
-              routines, and showing up consistently.
-            </p>
-          </div>
-        </div>
-
-      </div>
+    <!-- Life in Germany -->
+    <section class="life">
+      <h2>Life in Germany</h2>
+      <p>
+        I’m building long-term roots in Germany through language,
+        routine, and everyday participation. Integration is not
+        symbolic — it’s practiced daily.
+      </p>
+      <p>
+        My German language journey focuses on confidence and clarity
+        in professional and everyday contexts, supported by structured
+        learning and real conversations.
+      </p>
+      <span>Language · Integration · Long-term commitment</span>
     </section>
 
     <footer>
-      Designed to be quiet. Life usually is.
+      Designed to feel deliberate. Nothing extra.
     </footer>
 
   </div>
