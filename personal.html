@@ -14,6 +14,7 @@
     :root{
       --text:#0f172a;
       --muted:#475569;
+      --muted-2:#64748b;
       --border: rgba(15,23,42,0.08);
 
       --accent-orange:#ff8f3d;
@@ -21,11 +22,14 @@
       --accent-blue:#60a5fa;
       --accent-olive:#84a98c;
       --accent-gold:#d6c28f;
+      --accent-purple:#a78bfa;
 
       --bg:#f8fafc;
       --card:#ffffff;
 
       --shadow: 0 14px 30px rgba(15,23,42,0.12);
+      --shadow-soft: 0 10px 24px rgba(15,23,42,0.10);
+
       --radius-xl:22px;
       --radius-lg:16px;
       --radius-pill:999px;
@@ -92,7 +96,7 @@
       box-shadow: 0 8px 18px rgba(15,23,42,0.12);
     }
 
-    /* Intro (quiet, no headline) */
+    /* Intro */
     .intro{
       margin-top:22px;
       max-width:760px;
@@ -101,9 +105,28 @@
       line-height:1.65;
     }
 
+    /* Generic section */
+    .section{
+      margin-top:40px;
+    }
+
+    .section h2{
+      margin:0 0 12px;
+      font-size:20px;
+      font-weight:600;
+      letter-spacing:0.2px;
+    }
+
+    .section p.lead{
+      margin:0 0 20px;
+      max-width:760px;
+      font-size:14.8px;
+      line-height:1.65;
+      color: var(--muted);
+    }
+
     /* Tiles */
     .tiles{
-      margin-top:28px;
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
       gap:20px;
@@ -140,8 +163,9 @@
     .photo{ background:#fff3e8; color:var(--accent-orange); }
     .hike{ background:#edf7f2; color:var(--accent-olive); }
     .city{ background:#eef2ff; color:var(--accent-blue); }
-    .learn{ background:#e6fbf7; color:var(--accent-teal); }
     .coffee{ background:#faf6ea; color:var(--accent-gold); }
+    .learn{ background:#e6fbf7; color:var(--accent-teal); }
+    .lang{ background:#f3e8ff; color:var(--accent-purple); }
 
     .tile h3{
       margin:0 0 6px;
@@ -167,18 +191,14 @@
     }
 
     .tile.active .reveal{
-      max-height:140px;
+      max-height:160px;
     }
 
     footer{
-      margin-top:32px;
+      margin-top:40px;
       text-align:center;
       font-size:12.8px;
       color:#64748b;
-    }
-
-    @media (max-width:520px){
-      .intro{ font-size:14.5px; }
     }
   </style>
 </head>
@@ -190,7 +210,7 @@
     <div class="crumbs">
       <span><i class="fa-solid fa-user"></i> Personal</span>
       <span>·</span>
-      <span>Life in Germany</span>
+      <span>Life & integration</span>
     </div>
 
     <div class="pillrow">
@@ -201,66 +221,93 @@
   </div>
 
   <div class="intro">
-    Outside work, I build a rhythm around curiosity, movement, and everyday life in Germany.
-    Click a tile to expand.
+    This page shows how I live, learn, and integrate in Germany — not as a visitor,
+    but as someone building long-term roots.
   </div>
 
-  <section class="tiles">
+  <!-- LIFE TILES -->
+  <section class="section">
+    <div class="tiles">
 
-    <div class="tile">
-      <div class="icon photo"><i class="fa-solid fa-camera"></i></div>
-      <h3>Photography</h3>
-      <p>Street, light, everyday moments.</p>
-      <div class="reveal">
-        I document cities, people, and quiet transitions. Photography helps me observe
-        patterns and atmosphere rather than rush through them.
+      <div class="tile">
+        <div class="icon photo"><i class="fa-solid fa-camera"></i></div>
+        <h3>Photography</h3>
+        <p>Street, light, everyday moments.</p>
+        <div class="reveal">
+          I document cities, people, and transitions. Photography helps me observe atmosphere
+          rather than rush through it.
+        </div>
       </div>
-    </div>
 
-    <div class="tile">
-      <div class="icon hike"><i class="fa-solid fa-person-hiking"></i></div>
-      <h3>Hiking & walking</h3>
-      <p>Forests, trails, long walks.</p>
-      <div class="reveal">
-        Germany’s trails and green spaces are where I reset. Walking helps me think clearly
-        and step away from constant optimisation.
+      <div class="tile">
+        <div class="icon hike"><i class="fa-solid fa-person-hiking"></i></div>
+        <h3>Hiking & walking</h3>
+        <p>Forests, trails, long walks.</p>
+        <div class="reveal">
+          Germany’s trails and green spaces are where I reset and think clearly,
+          away from constant optimisation.
+        </div>
       </div>
-    </div>
 
-    <div class="tile">
-      <div class="icon city"><i class="fa-solid fa-city"></i></div>
-      <h3>City life</h3>
-      <p>Mannheim and nearby towns.</p>
-      <div class="reveal">
-        I enjoy exploring neighbourhoods, public spaces, and how cities are designed
-        for everyday life, not just efficiency.
+      <div class="tile">
+        <div class="icon coffee"><i class="fa-solid fa-mug-hot"></i></div>
+        <h3>Cafés & slow mornings</h3>
+        <p>Quiet focus, everyday rhythm.</p>
+        <div class="reveal">
+          Cafés are my third place for reading, reflection, and observing how
+          people structure daily life.
+        </div>
       </div>
-    </div>
 
-    <div class="tile">
-      <div class="icon coffee"><i class="fa-solid fa-mug-hot"></i></div>
-      <h3>Cafés & slow mornings</h3>
-      <p>Good coffee, quiet focus.</p>
-      <div class="reveal">
-        Cafés are my preferred third place. Reading, reflecting, and observing people
-        helps balance structured work with calm presence.
+    </div>
+  </section>
+
+  <!-- LIFE IN GERMANY -->
+  <section class="section">
+    <h2>Life in Germany</h2>
+    <p class="lead">
+      Integration for me is practical and intentional. Language, routine, and
+      showing up consistently matter more than checklists.
+    </p>
+
+    <div class="tiles">
+
+      <div class="tile">
+        <div class="icon lang"><i class="fa-solid fa-language"></i></div>
+        <h3>German language journey</h3>
+        <p>From survival to structured learning.</p>
+        <div class="reveal">
+          I actively work on improving my German through daily exposure, formal learning,
+          and real conversations. The goal is not perfection, but clarity and confidence
+          in professional and everyday settings.
+        </div>
       </div>
-    </div>
 
-    <div class="tile">
-      <div class="icon learn"><i class="fa-solid fa-brain"></i></div>
-      <h3>Learning & reflection</h3>
-      <p>Thinking in systems.</p>
-      <div class="reveal">
-        I spend time breaking complex ideas into simple mental models through reading,
-        journaling, and structured reflection.
+      <div class="tile">
+        <div class="icon city"><i class="fa-solid fa-city"></i></div>
+        <h3>Understanding local culture</h3>
+        <p>How systems shape everyday life.</p>
+        <div class="reveal">
+          Living in Germany has deepened my appreciation for structure, reliability,
+          and thoughtful design in public systems — values I align with professionally.
+        </div>
       </div>
-    </div>
 
+      <div class="tile">
+        <div class="icon learn"><i class="fa-solid fa-brain"></i></div>
+        <h3>Learning through participation</h3>
+        <p>Not observing from the outside.</p>
+        <div class="reveal">
+          From language classes to local routines, I focus on participation rather
+          than passive adaptation. Integration is a skill you practice.
+        </div>
+      </div>
+
+    </div>
   </section>
 
   <footer>
-    This page is intentionally quiet. It’s about continuity, not performance.
+    Calm, intentional, and lived-in. That’s the point.
   </footer>
 
 </div>
