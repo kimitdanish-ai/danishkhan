@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Professional | Danish Khan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   
 
@@ -11,10 +12,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
+    #flow{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+    .glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(214,194,143,.13),transparent 65%);transform:translate(-50%,-50%);left:-999px;top:-999px}
+    .container{position:relative;z-index:1}
     :root{
-      --bg-0:#071a14;
-      --bg-1:#0b2a20;
-      --bg-2:#0f3a2c;
+      --bg-0:#0a2219;
+      --bg-1:#12382a;
+      --bg-2:#1b4d3a;
 
       --panel: rgba(255,255,255,0.06);
       --panel-2: rgba(255,255,255,0.085);
@@ -362,6 +366,7 @@
 </head>
 
 <body>
+  <div class="chatbot-float" style="position:fixed;right:24px;bottom:24px;z-index:999;display:flex;flex-direction:column;align-items:center;gap:8px"><div style="font-size:12.5px;color:rgba(244,246,245,.8);background:rgba(0,0,0,.35);padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.13)">Chat with my Assistant</div><a href="chatbot.html" aria-label="Chat with my Assistant" style="width:54px;height:54px;border-radius:50%;background:linear-gradient(180deg,rgba(214,194,143,.35),rgba(214,194,143,.18));border:1px solid rgba(214,194,143,.55);display:flex;align-items:center;justify-content:center;color:#f4f6f5;font-size:22px;text-decoration:none"><i class="fa-solid fa-robot"></i></a></div>
   <div class="container">
 
     <!-- Topbar -->
@@ -373,10 +378,10 @@
       </div>
       <div class="pillrow">
         <a class="pill" href="index.html"><i class="fa-solid fa-arrow-left"></i> Home</a>
-        <a class="pill" href="personal.html"><i class="fa-solid fa-camera-retro"></i> Personal</a>
+        <a class="pill" href="personal.html"><i class="fa-solid fa-camera-retro"></i> Beyond Work</a>
         <a class="pill" href="chatbot.html"><i class="fa-solid fa-robot"></i> Chatbot</a>
-        <a class="pill" href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-        <a class="pill gold" href="Danish_Khan_CV.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
+        <a class="pill" href="https://www.linkedin.com/in/danishkhan08" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a class="pill gold" href="https://calendar.app.google/cdebSUyVTSf2VrTY9" target="_blank" rel="noopener"><i class="fa-regular fa-calendar"></i> Book a call</a>
       </div>
     </div>
 
@@ -385,7 +390,7 @@
       <div class="heroInner">
         <div>
           <p class="sub">
-            Operations & supply chain leader blending <strong>industrial discipline</strong> with <strong>startup execution</strong>.
+            Operations and supply chain leader blending <strong>industrial discipline</strong> with <strong>startup execution</strong>.
             I build scalable systems, improve reliability, and deliver measurable performance gains.
           </p>
 
@@ -406,17 +411,14 @@
             <div class="label">Strength</div>
             <div class="value">Structured execution + stakeholder alignment</div>
           </div>
-          <div class="kpi">
-            <div class="label">Availability</div>
-            <div class="value">Immediate · Open to DACH/Benelux</div>
-          </div>
+          <div class="kpi"><div class="label">Based in</div><div class="value">Mannheim, Germany</div></div>
         </div>
       </div>
 
       <div class="heroFooter">
         <div>Prefer a fast overview? Start with <strong>Highlights</strong>. Want depth? Open a <strong>Case story</strong>.</div>
         <div>
-          <a class="pill gold" href="mailto:mkhan3@mbs.education?subject=Interview%20discussion" target="_blank">
+          <a class="pill gold" href="mailto:danishk.mba@gmail.com?subject=Hello%20Danish" target="_blank">
             <i class="fa-solid fa-envelope"></i> Contact
           </a>
         </div>
@@ -427,7 +429,7 @@
     <section class="section active" id="highlights">
       <div class="sectionHeader">
         <h2>Highlights</h2>
-        <div class="hint">Click “Details” to expand without drowning the page.</div>
+        <div class="hint">Tap Details to expand</div>
       </div>
 
       <div class="grid twoCol">
@@ -516,64 +518,39 @@
         </div>
       </div>
 
-      <div class="note">
-        Thank you 
-      </div>
+      
     </section>
 
     <!-- CASE STORIES -->
     <section class="section" id="cases">
       <div class="sectionHeader">
         <h2>Case stories</h2>
-        <div class="hint">Short, structured, and expandable.</div>
+        <div class="hint">What I built and how</div>
       </div>
 
       <div class="grid full">
         <div class="card">
-          <div class="cardTitle">
-            <div class="icon"><i class="fa-solid fa-diagram-project"></i></div>
-            <div>
-              <h3>Platform X Growth Strategy (MBA Project)</h3>
-              <div class="meta">Personas · Prioritization · GTM/onboarding framework (DACH)</div>
-            </div>
-          </div>
-          <div class="body">
-            Built research-backed personas, mapped decision drivers, and translated insights into a practical onboarding/GTM framework.
-          </div>
-          <details>
-            <summary><i class="fa-solid fa-chevron-down"></i> What I did</summary>
-            <ul class="bullets">
-              <li>Conducted internal + partner interviews to capture needs and adoption barriers</li>
-              <li>Created personas and prioritization logic to focus on highest-impact segments</li>
-              <li>Delivered a clear roadmap and communication artifacts for stakeholders</li>
-            </ul>
-          </details>
+          <div class="cardTitle"><div class="icon"><i class="fa-solid fa-route"></i></div>
+            <div><h3>Building a last mile network</h3><div class="meta">Network design · Delivery reliability · Scaling</div></div></div>
+          <div class="body">Designed and built a last mile network from the ground up, so products reached the final customer reliably and could scale with demand.</div>
+          <details><summary><i class="fa-solid fa-chevron-down"></i> What I did</summary>
+            <ul class="bullets"><li>Mapped the flow from dispatch to final delivery and found where it broke</li><li>Designed the network structure and the operating routine around it</li><li>Tracked service performance with data so the network could keep improving</li></ul></details>
         </div>
-
         <div class="card">
-          <div class="cardTitle">
-            <div class="icon"><i class="fa-solid fa-industry"></i></div>
-            <div>
-              <h3>Industrial product/operations delivery</h3>
-              <div class="meta">Execution · Reliability · Cross-functional coordination</div>
-            </div>
-          </div>
-          <div class="body">
-            Led structured delivery in environments where launch, compliance, and quality are non-negotiable.
-          </div>
-          <details>
-            <summary><i class="fa-solid fa-chevron-down"></i> What this demonstrates</summary>
-            <ul class="bullets">
-              <li>Comfort with constraints, timelines, and high ownership</li>
-              <li>Communication across engineering, suppliers, and operations</li>
-              <li>Bias toward practical implementation over slide perfection</li>
-            </ul>
-          </details>
+          <div class="cardTitle"><div class="icon"><i class="fa-solid fa-industry"></i></div>
+            <div><h3>Designing an emission norms compliant machine</h3><div class="meta">Product development · Compliance · Cross-functional delivery</div></div></div>
+          <div class="body">Designed and developed a machine that meets emission regulations, working across engineering, suppliers and operations from concept to launch readiness.</div>
+          <details><summary><i class="fa-solid fa-chevron-down"></i> What I did</summary>
+            <ul class="bullets"><li>Translated regulatory requirements into design decisions</li><li>Coordinated engineering and suppliers under stage gate timelines</li><li>Kept performance and cost in balance while meeting the norm</li></ul></details>
         </div>
-      </div>
-
-      <div class="note">
-        Next upgrade: we’ll add 2–3 “mini-case” cards with real metrics from your CV (cost, lead time, reliability, launch).
+        <div class="card">
+          <div class="cardTitle"><div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+            <div><h3>A data driven decision approach</h3><div class="meta">Analytics · Prioritization · Execution</div></div></div>
+          <div class="body">Replaced opinion led decisions with a simple, repeatable approach where the data sets the priorities and the team knows the next step.</div>
+          <details><summary><i class="fa-solid fa-chevron-down"></i> What I did</summary>
+            <ul class="bullets"><li>Defined the few metrics that matter for each decision</li><li>Built reporting that makes problems visible early</li><li>Turned analysis into clear actions with owners</li></ul></details>
+        </div>
+        <!-- TODO add real numbers to each case: result, timeframe, company -->
       </div>
     </section>
 
@@ -581,7 +558,7 @@
     <section class="section" id="experience">
       <div class="sectionHeader">
         <h2>Experience timeline</h2>
-        <div class="hint">Expandable entries instead of a long wall of text.</div>
+        <div class="hint">Where I have worked</div>
       </div>
 
       <div class="grid full">
@@ -626,10 +603,6 @@
           </details>
         </div>
       </div>
-
-      <div class="note">
-        This isn’t your CV. This is the “why you” version. The CV is linked above for formal details.
-      </div>
     </section>
 
     <!-- SKILLS -->
@@ -662,10 +635,6 @@
             Click a chip above to see a concise capability snapshot.
           </div>
         </div>
-      </div>
-
-      <div class="note">
-        Next: We can add “Role-fit” presets (e.g., Ops Manager / Biz Improvement / Supply Chain) that auto-select chips.
       </div>
     </section>
 
@@ -710,5 +679,6 @@
       });
     });
   </script>
+<script src="site.js"></script>
 </body>
 </html>
