@@ -40,7 +40,7 @@
     /* Top bar */
     .topbar{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; padding:12px 14px; border:1px solid var(--border); background:linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.045)); border-radius:var(--radius-lg); box-shadow:var(--shadow); backdrop-filter:blur(10px)}
     .left{display:flex; gap:10px; flex-wrap:wrap; font-size:13.5px; color:var(--muted)}
-    .pillrow{display:flex; gap:10px; flex-wrap:wrap}
+    .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-left:auto}
     .pill{display:inline-flex; align-items:center; gap:8px; padding:9px 13px; border-radius:var(--radius-pill); border:1px solid var(--border); background:rgba(0,0,0,0.14); color:var(--text); text-decoration:none; font-size:13.5px; transition:all .15s ease; white-space:nowrap}
     .pill:hover{background:rgba(255,255,255,0.08); border-color:var(--border-2); transform:translateY(-1px)}
     .pill.gold{border-color:rgba(214,194,143,0.55); background:rgba(214,194,143,0.14)}
@@ -52,6 +52,7 @@
     h1{font-size:clamp(38px,6vw,56px); line-height:1.05; font-weight:700; margin:0 0 16px; letter-spacing:-.02em}
     .headline{font-size:17px; line-height:1.7; color:var(--muted); max-width:540px; margin:0}
     .headline strong{color:var(--text)}
+    .loc{display:inline-flex;align-items:center;gap:8px;margin:-4px 0 16px;padding:6px 14px;border:1px solid rgba(214,194,143,.4);border-radius:999px;font-size:13.5px;color:var(--gold);background:rgba(214,194,143,.08)}
     .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:20px}
     .chip{font-size:13px; padding:6px 12px; border-radius:var(--radius-pill); border:1px solid rgba(214,194,143,0.4); color:var(--gold); background:rgba(214,194,143,0.08)}
     .photoWrap{display:flex; justify-content:center}
@@ -59,11 +60,11 @@
     .photoFrame img{width:100%; height:100%; object-fit:cover; display:block}
 
     /* Intro video */
-    .intro{margin:46px auto 0; max-width:560px}
-    .sectionhead{max-width:560px; margin-left:auto; margin-right:auto; display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:14px}
+    .intro{margin:46px auto 0; max-width:960px}
+    .sectionhead{max-width:960px; margin-left:auto; margin-right:auto; display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:14px}
     .sectionhead h2{margin:0; font-size:22px; font-weight:600}
     .sectionhead span{font-size:13.5px; color:var(--muted-2)}
-    .videoFrame{position:relative; width:100%; max-width:560px; margin:0 auto; max-width:560px; margin:0 auto; aspect-ratio:16/9; border-radius:var(--radius-xl); overflow:hidden; border:1px solid rgba(214,194,143,0.35); box-shadow:var(--shadow); background:#06150f}
+    .videoFrame{position:relative; width:100%; max-width:960px; margin:0 auto; aspect-ratio:16/9; border-radius:var(--radius-xl); overflow:hidden; border:1px solid rgba(214,194,143,0.35); box-shadow:var(--shadow); background:#06150f}
     .videoFrame video,.videoFrame iframe{position:absolute; inset:0; width:100%; height:100%; border:0; object-fit:cover}
     .videoPlaceholder{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; text-align:center; color:var(--muted); padding:20px}
     .videoPlaceholder i{font-size:44px; color:var(--gold)}
@@ -123,10 +124,11 @@
 <div class="container">
 
   <div class="topbar">
-    <div class="left">
-      <span><i class="fa-solid fa-location-dot"></i> Mannheim, Germany</span>
-    </div>
     <div class="pillrow">
+      <a class="pill on" href="index.html"><i class="fa-solid fa-house"></i> About Me</a>
+      <a class="pill" href="professional.html"><i class="fa-solid fa-briefcase"></i> Professional</a>
+      <a class="pill" href="personal.html"><i class="fa-solid fa-mountain-sun"></i> Beyond Work</a>
+<a class="pill" href="life-in-germany.html"><i class="fa-solid fa-earth-europe"></i> Life in Germany</a>
       <a class="pill" href="mailto:danishk.mba@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
       <a class="pill" href="https://www.linkedin.com/in/danishkhan08" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
       <a class="pill gold" href="https://calendar.app.google/cdebSUyVTSf2VrTY9" target="_blank" rel="noopener"><i class="fa-regular fa-calendar"></i> Book a call</a>
@@ -137,6 +139,7 @@
     <div class="heroText">
       <span class="eyebrow">Operations · Process Excellence · Analytics</span>
       <h1>Danish Khan</h1>
+      <div class="loc"><i class="fa-solid fa-location-dot"></i> <span>Mannheim, Germany</span></div>
       <p class="headline" data-k="h-index">
         MBA graduate and operations leader blending <strong>industrial discipline</strong> with
         <strong>startup execution</strong>. I build scalable operations and supply chain systems,
@@ -144,6 +147,7 @@
       </p>
       <div class="rotor" id="rotor" data-pre="Always asking: " aria-live="off"><span id="rtxt"></span><i></i></div>
       <div class="chips">
+        <span class="chip"><i class="fa-solid fa-location-dot"></i> Mannheim, Germany</span>
         <span class="chip">Operational scaling</span>
         <span class="chip">Lean and Six Sigma methods</span>
         <span class="chip">Celonis</span>
@@ -166,7 +170,6 @@
   <section class="intro reveal">
     <div class="sectionhead">
       <h2>Meet me in two minutes</h2>
-      <span>A short intro, straight to camera</span>
     </div>
     <div class="videoFrame">
       <!-- OPTION A, your own file: replace the placeholder div below with
@@ -178,21 +181,6 @@
         <div>Intro video coming soon</div>
       </div>
     </div>
-  </section>
-
-  <section class="cards reveal">
-    <a class="card" href="professional.html">
-      <div class="icon"><i class="fa-solid fa-briefcase"></i></div>
-      <h2>Professional</h2>
-      <div class="tag">Experience, projects and skills, with the impact behind each.</div>
-      <div class="cta">View my work <i class="fa-solid fa-arrow-right"></i></div>
-    </a>
-    <a class="card" href="personal.html">
-      <div class="icon"><i class="fa-solid fa-mountain-sun"></i></div>
-      <h2>Beyond Work</h2>
-      <div class="tag">Hiking, wandering, photography, learning and volunteering.</div>
-      <div class="cta">Get to know me <i class="fa-solid fa-arrow-right"></i></div>
-    </a>
   </section>
 
   <div class="hint">Move your cursor over the background. It is a process map, and every dot is a case flowing through.</div>
@@ -302,7 +290,7 @@ var DE={
 "Professional | Danish Khan":"Beruflich | Danish Khan",
 "Beyond Work | Danish Khan":"Jenseits der Arbeit | Danish Khan",
 "Life in Germany | Danish Khan":"Leben in Deutschland | Danish Khan",
-"Home":"Start",
+"About Me":"Über mich",
 "Chatbot":"Chatbot",
 "Highlights":"Highlights",
 "Case stories":"Fallbeispiele",
