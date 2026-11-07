@@ -93,7 +93,7 @@
     .container,.topbar{position:relative; z-index:1}
     .glow{position:fixed; width:420px; height:420px; border-radius:50%; pointer-events:none; z-index:0; background:radial-gradient(circle,rgba(214,194,143,0.13),transparent 65%); transform:translate(-50%,-50%); left:-999px; top:-999px}
     .rotor{margin-top:18px; font-size:16px; color:var(--gold); min-height:26px; font-weight:500}
-    .rotor::before{content:"Always asking: "; color:var(--muted-2)}
+    .rotor::before{content:attr(data-pre); color:var(--muted-2)}
     .rotor i{display:inline-block; width:2px; height:1em; background:var(--gold); margin-left:3px; vertical-align:-2px; animation:blink 1s steps(1) infinite}
     @keyframes blink{50%{opacity:0}}
     .reveal{opacity:0; transform:translateY(26px); transition:opacity .8s ease, transform .8s ease}
@@ -137,12 +137,12 @@
     <div class="heroText">
       <span class="eyebrow">Operations · Process Excellence · Analytics</span>
       <h1>Danish Khan</h1>
-      <p class="headline">
+      <p class="headline" data-k="h-index">
         MBA graduate and operations leader blending <strong>industrial discipline</strong> with
         <strong>startup execution</strong>. I build scalable operations and supply chain systems,
         improve reliability, and deliver measurable performance gains.
       </p>
-      <div class="rotor" id="rotor" aria-live="off"><span id="rtxt"></span><i></i></div>
+      <div class="rotor" id="rotor" data-pre="Always asking: " aria-live="off"><span id="rtxt"></span><i></i></div>
       <div class="chips">
         <span class="chip">Operational scaling</span>
         <span class="chip">Lean and Six Sigma methods</span>
@@ -206,9 +206,9 @@
   /* Rotating questions */
   var q=["where does the process really break?","what would this look like at 10x?","what does the data say before the meeting?","why do we do it this way?","what can we remove, not add?"],qi=0,ci=0,del=false,t=document.getElementById('rtxt');
   if(rm){t.textContent=q[0];}else(function tick(){
-    var w=q[qi];ci+=del?-1:1;t.textContent=w.slice(0,ci);
+    var Q=(window.I18N_ROT||{})[window.LANG]||q;var w=Q[qi%Q.length];ci+=del?-1:1;t.textContent=w.slice(0,ci);
     var d=del?24:55;
-    if(!del&&ci===w.length){del=true;d=1800}else if(del&&ci===0){del=false;qi=(qi+1)%q.length;d=350}
+    if(!del&&ci===w.length){del=true;d=1800}else if(del&&ci===0){del=false;qi=(qi+1)%Q.length;d=350}
     setTimeout(tick,d)})();
   /* Reveal and counters */
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');
@@ -235,6 +235,234 @@
     if(!rm)requestAnimationFrame(frame)}
   frame();
 })();
+</script>
+<script>
+(function(){
+var DE={
+"Operations · Supply chain · Analytics":"Operations · Lieferkette · Analytics",
+"I turn complex operations into systems that scale.":"Ich mache aus komplexen Abläufen Systeme, die skalieren.",
+"Seven years in heavy machinery, startup operations and an MBA. Hands on, data first.":"Sieben Jahre im Schwermaschinenbau, Startup Operations und ein MBA. Praxisnah und datenbasiert.",
+"7 years":"7 Jahre",
+"JCB India, product development":"JCB Indien, Produktentwicklung",
+"Startup":"Startup",
+"AgTech operations":"AgTech Operations",
+"MBA":"MBA",
+"Master in Management":"Master in Management",
+"How I work":"Wie ich arbeite",
+"Build":"Aufbauen",
+"Design the system, not a one off fix.":"Das System gestalten, nicht nur eine Einzellösung.",
+"Measure":"Messen",
+"Few metrics, visible early, with a clear owner.":"Wenige Kennzahlen, früh sichtbar, mit klarem Verantwortlichen.",
+"It must still work at ten times the volume.":"Es muss auch bei zehnfachem Volumen funktionieren.",
+"Selected work":"Ausgewählte Arbeiten",
+"Last mile network":"Last Mile Netzwerk",
+"Designed and built from the ground up.":"Von Grund auf entworfen und aufgebaut.",
+"Network design":"Netzwerkdesign",
+"Emission norms compliant machine":"Abgasnormkonforme Maschine",
+"Designed and developed from concept to launch readiness.":"Entworfen und entwickelt vom Konzept bis zur Anlaufbereitschaft.",
+"Product development":"Produktentwicklung",
+"Data driven decisions":"Datenbasierte Entscheidungen",
+"Metrics and reporting that set the priorities.":"Kennzahlen und Berichte, die die Prioritäten setzen.",
+"Tools I use":"Werkzeuge, die ich nutze",
+"Six Sigma methods":"Six Sigma Methoden",
+"Lean":"Lean",
+"NPI":"NPI",
+"Stage gate":"Stage Gate",
+"JCB India":"JCB Indien",
+"Earthmoving equipment manufacturer. Product development, compliance and cross functional delivery.":"Hersteller von Erdbewegungsmaschinen. Produktentwicklung, Compliance und funktionsübergreifende Umsetzung.",
+"AgTech startup":"AgTech Startup",
+"Business operations. Scaling and process digitization.":"Business Operations. Skalierung und Prozessdigitalisierung.",
+"Education":"Ausbildung",
+"Master in Management and Bachelor in Engineering.":"Master in Management und Bachelor in Ingenieurwesen.",
+"Let us talk":"Lassen Sie uns sprechen",
+"I am looking to join a team where I can help operations scale. Happy to share the numbers behind each project.":"Ich möchte in ein Team einsteigen, in dem ich helfen kann, Operations skalierbar zu machen. Gerne teile ich die Zahlen hinter jedem Projekt.",
+"Chat with my Assistant":"Mit meinem Assistenten chatten",
+"Mannheim, Germany":"Mannheim, Deutschland",
+"Email":"E-Mail",
+"Book a call":"Termin buchen",
+"Operations · Process Excellence · Analytics":"Operations · Prozessexzellenz · Analytics",
+"Operational scaling":"Operatives Skalieren",
+"Lean and Six Sigma methods":"Lean und Six Sigma Methoden",
+"Lenses I work through: engineering, operations, startup":"Perspektiven, durch die ich arbeite: Technik, Operations, Startup",
+"Core tools: Celonis, Power BI, SAP, Lean, NPI":"Kernwerkzeuge: Celonis, Power BI, SAP, Lean, NPI",
+"Countries, India and Germany":"Länder, Indien und Deutschland",
+"Scale":"Skalierung",
+"The one word behind everything I build":"Das eine Wort hinter allem, was ich aufbaue",
+"Meet me in two minutes":"Lernen Sie mich in zwei Minuten kennen",
+"A short intro, straight to camera":"Eine kurze Vorstellung, direkt in die Kamera",
+"Intro video coming soon":"Vorstellungsvideo folgt in Kürze",
+"Professional":"Beruflich",
+"Experience, projects and skills, with the impact behind each.":"Erfahrung, Projekte und Fähigkeiten, jeweils mit der Wirkung dahinter.",
+"View my work":"Meine Arbeit ansehen",
+"Beyond Work":"Jenseits der Arbeit",
+"Hiking, wandering, photography, learning and volunteering.":"Wandern, Streifzüge, Fotografie, Lernen und Ehrenamt.",
+"Get to know me":"Mich kennenlernen",
+"Move your cursor over the background. It is a process map, and every dot is a case flowing through.":"Bewegen Sie den Mauszeiger über den Hintergrund. Es ist eine Prozesslandkarte, und jeder Punkt ist ein Vorgang, der hindurchfließt.",
+"Danish Khan · Mannheim, Germany":"Danish Khan · Mannheim, Deutschland",
+"Professional | Danish Khan":"Beruflich | Danish Khan",
+"Beyond Work | Danish Khan":"Jenseits der Arbeit | Danish Khan",
+"Life in Germany | Danish Khan":"Leben in Deutschland | Danish Khan",
+"Home":"Start",
+"Chatbot":"Chatbot",
+"Highlights":"Highlights",
+"Case stories":"Fallbeispiele",
+"Experience":"Erfahrung",
+"Skills":"Fähigkeiten",
+"Focus":"Fokus",
+"Ops excellence · Supply chain · Business improvement":"Operative Exzellenz · Lieferkette · Geschäftsverbesserung",
+"Strength":"Stärke",
+"Structured execution + stakeholder alignment":"Strukturierte Umsetzung + Abstimmung mit Stakeholdern",
+"Based in":"Standort",
+"Contact":"Kontakt",
+"Tap Details to expand":"Für Details antippen",
+"Operations systems that stick":"Operative Systeme, die dauerhaft wirken",
+"Process design · KPI cadence · Standard work":"Prozessdesign · KPI Rhythmus · Standardarbeit",
+"Build operating rhythms that make performance measurable, repeatable, and improvable.":"Ich baue Betriebsrhythmen auf, die Leistung messbar, wiederholbar und verbesserbar machen.",
+"Details":"Details",
+"Define metrics hierarchy (leading/lagging)":"Kennzahlenhierarchie definieren (vorlaufend/nachlaufend)",
+"Weekly operating cadence and escalation paths":"Wöchentlicher Betriebsrhythmus und Eskalationswege",
+"Root-cause routines and continuous improvement loops":"Ursachenanalyse Routinen und kontinuierliche Verbesserungsschleifen",
+"Data-driven decision making":"Datenbasierte Entscheidungsfindung",
+"Analytics · Tradeoffs · Execution planning":"Analytics · Abwägungen · Umsetzungsplanung",
+"Turn messy operations reality into clear priorities and decisions people can execute.":"Ich mache aus der unübersichtlichen Praxis klare Prioritäten und Entscheidungen, die Teams umsetzen können.",
+"Translate analysis into “do this next” actions":"Analysen in konkrete nächste Schritte übersetzen",
+"Build simple models for planning and prioritization":"Einfache Modelle für Planung und Priorisierung bauen",
+"Communicate to mixed technical/non-technical teams":"Mit technischen und nicht technischen Teams verständlich kommunizieren",
+"Manufacturing + product lifecycle":"Fertigung + Produktlebenszyklus",
+"Launch readiness · Compliance · Cross-functional delivery":"Anlaufbereitschaft · Compliance · Funktionsübergreifende Umsetzung",
+"Experience in industrial environments where execution quality matters.":"Erfahrung in industriellen Umfeldern, in denen Umsetzungsqualität zählt.",
+"Stage-gate delivery under constraints":"Stage Gate Umsetzung unter Rahmenbedingungen",
+"Supplier and engineering coordination":"Abstimmung zwischen Lieferanten und Entwicklung",
+"Operational readiness and reliability focus":"Betriebsbereitschaft und Fokus auf Zuverlässigkeit",
+"Stakeholder alignment":"Abstimmung mit Stakeholdern",
+"Workshops · Interviews · Decision frameworks":"Workshops · Interviews · Entscheidungsrahmen",
+"Build clarity quickly and keep teams aligned when priorities collide.":"Schnell Klarheit schaffen und Teams ausrichten, wenn Prioritäten kollidieren.",
+"Facilitate workshops with clear outputs":"Workshops mit klaren Ergebnissen moderieren",
+"Define crisp ownership and next steps":"Verantwortung und nächste Schritte klar festlegen",
+"Communicate tradeoffs without drama":"Abwägungen sachlich und ohne Drama kommunizieren",
+"What I built and how":"Was ich aufgebaut habe und wie",
+"Building a last mile network":"Aufbau eines Last Mile Netzwerks",
+"Network design · Delivery reliability · Scaling":"Netzwerkdesign · Lieferzuverlässigkeit · Skalierung",
+"Designed and built a last mile network from the ground up, so products reached the final customer reliably and could scale with demand.":"Ich habe ein Last Mile Netzwerk von Grund auf entworfen und aufgebaut, damit Produkte zuverlässig beim Endkunden ankommen und mit der Nachfrage wachsen können.",
+"What I did":"Was ich getan habe",
+"Mapped the flow from dispatch to final delivery and found where it broke":"Den Ablauf vom Versand bis zur Zustellung abgebildet und die Schwachstellen gefunden",
+"Designed the network structure and the operating routine around it":"Die Netzwerkstruktur und die zugehörige Betriebsroutine entworfen",
+"Tracked service performance with data so the network could keep improving":"Die Servicequalität mit Daten verfolgt, damit sich das Netzwerk laufend verbessert",
+"Designing an emission norms compliant machine":"Entwicklung einer abgasnormkonformen Maschine",
+"Product development · Compliance · Cross-functional delivery":"Produktentwicklung · Compliance · Funktionsübergreifende Umsetzung",
+"Designed and developed a machine that meets emission regulations, working across engineering, suppliers and operations from concept to launch readiness.":"Ich habe eine Maschine entworfen und entwickelt, die die Abgasvorschriften erfüllt, und dabei mit Entwicklung, Lieferanten und Betrieb vom Konzept bis zur Anlaufbereitschaft zusammengearbeitet.",
+"Translated regulatory requirements into design decisions":"Regulatorische Anforderungen in Konstruktionsentscheidungen übersetzt",
+"Coordinated engineering and suppliers under stage gate timelines":"Entwicklung und Lieferanten innerhalb der Stage Gate Termine koordiniert",
+"Kept performance and cost in balance while meeting the norm":"Leistung und Kosten im Gleichgewicht gehalten und dabei die Norm erfüllt",
+"A data driven decision approach":"Ein datenbasierter Entscheidungsansatz",
+"Analytics · Prioritization · Execution":"Analytics · Priorisierung · Umsetzung",
+"Replaced opinion led decisions with a simple, repeatable approach where the data sets the priorities and the team knows the next step.":"Meinungsgetriebene Entscheidungen durch einen einfachen, wiederholbaren Ansatz ersetzt, bei dem die Daten die Prioritäten setzen und das Team den nächsten Schritt kennt.",
+"Defined the few metrics that matter for each decision":"Die wenigen Kennzahlen definiert, die für jede Entscheidung zählen",
+"Built reporting that makes problems visible early":"Berichte aufgebaut, die Probleme früh sichtbar machen",
+"Turned analysis into clear actions with owners":"Analysen in klare Maßnahmen mit Verantwortlichen übersetzt",
+"Experience timeline":"Berufliche Stationen",
+"Where I have worked":"Wo ich gearbeitet habe",
+"JCB India (7 years)":"JCB Indien (7 Jahre)",
+"Product/engineering delivery · Compliance · Cross-functional execution":"Produkt und Entwicklungsumsetzung · Compliance · Funktionsübergreifende Umsetzung",
+"Deep industrial execution experience with structured delivery and operational accountability.":"Fundierte industrielle Umsetzungserfahrung mit strukturierter Lieferung und operativer Verantwortung.",
+"Add 3–5 strongest bullets here (with numbers)":"Hier folgen die 3 bis 5 stärksten Punkte (mit Zahlen)",
+"Example: “Improved X by Y% by doing Z”":"Beispiel: „X um Y % verbessert durch Z“",
+"Keep it outcome-first, not task-first":"Ergebnis zuerst, nicht Aufgabe zuerst",
+"AgTech startup experience":"Erfahrung im AgTech Startup",
+"Scaling operations · Process digitization · Governance":"Operations skalieren · Prozessdigitalisierung · Governance",
+"Hands-on execution in a fast-moving environment where clarity and prioritization matter.":"Praktische Umsetzung in einem dynamischen Umfeld, in dem Klarheit und Priorisierung zählen.",
+"Add 3–5 bullets here (systems built, processes improved, measurable outcomes)":"Hier folgen 3 bis 5 Punkte (aufgebaute Systeme, verbesserte Prozesse, messbare Ergebnisse)",
+"Focus on execution, ownership, and impact":"Fokus auf Umsetzung, Verantwortung und Wirkung",
+"Skills (filterable)":"Fähigkeiten (filterbar)",
+"Click a chip to highlight relevant items.":"Klicken Sie auf ein Feld, um Relevantes hervorzuheben.",
+"Core toolkit":"Kernwerkzeuge",
+"Ops · Supply chain · Continuous improvement · Analytics":"Operations · Lieferkette · Kontinuierliche Verbesserung · Analytics",
+"Operations Excellence":"Operative Exzellenz",
+"Supply Chain":"Lieferkette",
+"Lean / CI":"Lean / KVP",
+"Program / Project":"Programm / Projekt",
+"Analytics":"Analytics",
+"Stakeholder":"Stakeholder",
+"Click a chip above to see a concise capability snapshot.":"Klicken Sie oben auf ein Feld für einen kompakten Überblick.",
+"Operations Excellence: build operating cadence, KPI structure, escalation paths, and standard work that improves performance consistently.":"Operative Exzellenz: Betriebsrhythmus, KPI Struktur, Eskalationswege und Standardarbeit aufbauen, die die Leistung dauerhaft verbessern.",
+"Supply Chain: planning, coordination, reliability focus, and practical improvements to flow, availability, and delivery.":"Lieferkette: Planung, Koordination, Fokus auf Zuverlässigkeit und praktische Verbesserungen bei Fluss, Verfügbarkeit und Lieferung.",
+"Lean/CI: problem framing, root-cause routines, prioritization, and implementation that sticks (not just workshops).":"Lean/KVP: Problemdefinition, Ursachenanalyse, Priorisierung und Umsetzung, die hält (nicht nur Workshops).",
+"Program/Project: cross-functional delivery, structured execution under constraints, stakeholder alignment, and clear ownership.":"Programm/Projekt: funktionsübergreifende Umsetzung, strukturierte Durchführung unter Rahmenbedingungen, Stakeholder Abstimmung und klare Verantwortung.",
+"Analytics: turning messy data into clear decisions, tradeoffs, and actions teams can execute without confusion.":"Analytics: unübersichtliche Daten in klare Entscheidungen, Abwägungen und Maßnahmen verwandeln, die Teams ohne Verwirrung umsetzen können.",
+"Stakeholder: interviews, workshops, and alignment across leadership and teams, with crisp communication and decision clarity.":"Stakeholder: Interviews, Workshops und Abstimmung zwischen Führung und Teams, mit klarer Kommunikation und Entscheidungsklarheit.",
+"How I see the world":"Wie ich die Welt sehe",
+"A few constants that shape how I observe, think and live outside formal work. Tap a tile to see why each one matters.":"Ein paar Konstanten, die prägen, wie ich beobachte, denke und lebe, außerhalb der formalen Arbeit. Tippen Sie auf eine Kachel, um zu sehen, warum sie wichtig ist.",
+"Photography":"Fotografie",
+"Street scenes, light, ordinary moments.":"Straßenszenen, Licht, ganz normale Momente.",
+"Photography trains attention and pattern recognition.":"Fotografie trainiert Aufmerksamkeit und Mustererkennung.",
+"Tap to open":"Zum Öffnen antippen",
+"Walking and hiking":"Spazieren und Wandern",
+"Forests, trails, long walks.":"Wälder, Pfade, lange Spaziergänge.",
+"Walking slows thinking and creates clarity.":"Gehen verlangsamt das Denken und schafft Klarheit.",
+"Cafés and quiet focus":"Cafés und ruhiger Fokus",
+"Reading, writing, observation.":"Lesen, Schreiben, Beobachten.",
+"Calm environments that support routine and depth.":"Ruhige Orte, die Routine und Tiefe unterstützen.",
+"Next chapter":"Nächstes Kapitel",
+"Life in Germany":"Leben in Deutschland",
+"I am building long term roots in Germany through language, routine and everyday participation. My German journey focuses on confidence and clarity in professional and daily settings.":"Ich baue mir in Deutschland langfristige Wurzeln auf, durch Sprache, Routine und Teilhabe im Alltag. Mein Weg mit der deutschen Sprache zielt auf Sicherheit und Klarheit im Beruf und im Alltag.",
+"Language · Integration · Long term commitment":"Sprache · Integration · Langfristiges Engagement",
+"Designed to feel deliberate. Nothing extra.":"Bewusst gestaltet. Nichts Überflüssiges.",
+"Back to Beyond Work":"Zurück zu Jenseits der Arbeit",
+"A deliberate move, built one day at a time":"Ein bewusster Schritt, Tag für Tag aufgebaut",
+"Moving to Germany was not a short term experiment. It is a deliberate decision to build a life around structure, learning and long term contribution.":"Der Umzug nach Deutschland war kein kurzfristiges Experiment. Es ist eine bewusste Entscheidung, ein Leben rund um Struktur, Lernen und langfristigen Beitrag aufzubauen.",
+"Why it fits":"Warum es passt",
+"Daily routines, public systems and cultural expectations shape how work and life are balanced here. I find alignment in this consistency.":"Tagesabläufe, öffentliche Systeme und kulturelle Erwartungen prägen hier, wie Arbeit und Leben im Gleichgewicht stehen. In dieser Verlässlichkeit finde ich Übereinstimmung.",
+"German language journey":"Mein Weg mit der deutschen Sprache",
+"I am actively improving my German through structured study, daily exposure and real conversations. The goal is not perfection, but clarity and confidence in professional and everyday situations.":"Ich verbessere mein Deutsch aktiv durch strukturiertes Lernen, täglichen Kontakt mit der Sprache und echte Gespräche. Das Ziel ist nicht Perfektion, sondern Klarheit und Sicherheit im Beruf und im Alltag.",
+"Study":"Lernen",
+"Structured learning":"Strukturiertes Lernen",
+"Exposure":"Kontakt",
+"Daily German around me":"Täglich Deutsch um mich herum",
+"Practice":"Praxis",
+"Real conversations":"Echte Gespräche",
+"Integration is built quietly, one day at a time.":"Integration entsteht leise, Tag für Tag."
+};
+var DEHTML={
+"h-index":"MBA Absolvent und Operations Leader, der <strong>industrielle Disziplin</strong> mit <strong>Startup Umsetzungskraft</strong> verbindet. Ich baue skalierbare Operations und Lieferkettensysteme auf, verbessere die Zuverlässigkeit und erziele messbare Leistungssteigerungen.",
+"h-pro":"Operations und Supply Chain Leader, der <strong>industrielle Disziplin</strong> mit <strong>Startup Umsetzungskraft</strong> verbindet. Ich baue skalierbare Systeme auf, verbessere die Zuverlässigkeit und erziele messbare Leistungssteigerungen.",
+"h-hero":"Ich mache aus komplexen Abläufen Systeme, die <em>skalieren</em>.",
+"f-pro":"Lieber ein schneller Überblick? Starten Sie mit <strong>Highlights</strong>. Lust auf Tiefe? Öffnen Sie ein <strong>Fallbeispiel</strong>."
+};
+var ROT={en:["where does the process really break?","what would this look like at 10x?","what does the data say before the meeting?","why do we do it this way?","what can we remove, not add?"],
+de:["wo bricht der Prozess wirklich?","wie sähe das bei zehnfachem Volumen aus?","was sagen die Daten vor dem Meeting?","warum machen wir es so?","was können wir weglassen, statt hinzuzufügen?"]};
+var PRE={en:"Always asking: ",de:"Immer die Frage: "};
+function norm(s){return s.replace(/\s+/g,' ').trim()}
+var lang='en';
+try{var sv=localStorage.getItem('lang');if(sv==='de'||sv==='en')lang=sv;else if((navigator.language||'').toLowerCase().indexOf('de')===0)lang='de'}catch(e){if((navigator.language||'').toLowerCase().indexOf('de')===0)lang='de'}
+window.LANG=lang;window.I18N_ROT=ROT;
+function apply(){
+  window.LANG=lang;document.documentElement.lang=lang;
+  var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null),n,list=[];
+  while(n=w.nextNode()){var p=n.parentNode&&n.parentNode.nodeName;if(p==='SCRIPT'||p==='STYLE'||p==='NOSCRIPT'||(n.parentNode.closest&&n.parentNode.closest('[data-k]')))continue;list.push(n)}
+  list.forEach(function(t){
+    var cur=norm(t.nodeValue);if(!cur)return;
+    if(t._en===undefined){if(DE[cur]===undefined)return;t._en=cur}
+    var tgt=lang==='de'?DE[t._en]:t._en;if(tgt===undefined)return;
+    var m=t.nodeValue.match(/^(\s*)[\s\S]*?(\s*)$/);t.nodeValue=m[1]+tgt+m[2];
+  });
+  document.querySelectorAll('[data-k]').forEach(function(el){
+    if(el.dataset.en===undefined)el.dataset.en=el.innerHTML;
+    el.innerHTML=lang==='de'?DEHTML[el.dataset.k]:el.dataset.en;
+  });
+  if(document.title){if(!window._t0)window._t0=document.title;document.title=lang==='de'?(DE[window._t0]||window._t0):window._t0}
+  var r=document.getElementById('rotor');if(r)r.setAttribute('data-pre',PRE[lang]);
+  var b=document.getElementById('langbtn');if(b){b.innerHTML='<i class="fa-solid fa-globe"></i> <span style="opacity:'+(lang==='en'?1:.5)+'">EN</span> | <span style="opacity:'+(lang==='de'?1:.5)+'">DE</span>';b.setAttribute('aria-label',lang==='en'?'Auf Deutsch wechseln':'Switch to English')}
+}
+window.i18nApply=apply;
+function mount(){
+  var row=document.querySelector('.pillrow');
+  if(row){var b=document.createElement('a');b.id='langbtn';b.href='#';b.className='pill';b.style.cursor='pointer';
+    b.addEventListener('click',function(e){e.preventDefault();lang=lang==='en'?'de':'en';try{localStorage.setItem('lang',lang)}catch(x){}apply()});row.appendChild(b)}
+  apply();
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);else mount();
+})();
+
 </script>
 </body>
 </html>
